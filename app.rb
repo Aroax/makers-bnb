@@ -1,8 +1,9 @@
 require "sinatra/base"
 require "sinatra/reloader"
 require "sinatra/flash"
-# require "./database_connection_setup"
+require "./database_connection_setup"
 require "uri"
+
 
 class MakersBnb < Sinatra::Base
   configure :development do
