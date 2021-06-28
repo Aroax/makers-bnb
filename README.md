@@ -16,4 +16,4 @@
    end
   ```
 - you can add as many :focus points as you like, it will include each one with that tag
-  => just remember to delete the `, :focus` when you're done please, so it doesn't get committed to main!
+-  => just remember to delete the `, :focus` when you're done please, so it doesn't get committed to main!
