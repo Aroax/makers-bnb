@@ -4,9 +4,9 @@ require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
 require 'features/web_helpers'
-# require './database_connection_setup'
+require './database_connection_setup'
 
-# require_relative './setup_test_database'
+require_relative './setup_test_database'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
@@ -21,19 +21,19 @@ ENV['ENVIRONMENT'] = 'test'
 # Bring in the contents of the `app.rb` file. The below is equivalent to: require_relative '../app.rb'
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
-# Tell Capybara to talk to BookmarkManager
+# Tell Capybara to talk to MakersBnb
 Capybara.app = MakersBnb
 
 # Truncate test tables before each test
 RSpec.configure do |config|
   config.before(:each) do
-    # setup_test_database
+    setup_test_database
   end
 end
 
 # Allow tagging of a test with it 'runs a test ', :focus do..end
 RSpec.configure do |config|
-  # config.filter_run_when_matching :focus
+  config.filter_run_when_matching :focus
 end
 
 RSpec.configure do |config|
