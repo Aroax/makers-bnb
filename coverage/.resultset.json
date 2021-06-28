@@ -1,14 +1,13 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/arranoakes/Projects/team-projects/makers-bnb/app.rb": {
+      "/Users/juelb/Desktop/Makers/makers-bnb/app.rb": {
         "lines": [
           1,
           1,
           1,
           null,
           1,
-          null,
           null,
           1,
           1,
@@ -18,12 +17,24 @@
           1,
           1,
           null,
+          1,
+          1,
           null,
           1,
           null
         ]
+      },
+      "/Users/juelb/Desktop/Makers/makers-bnb/spec/features/test_spec.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
       }
     },
-    "timestamp": 1624877603
+    "timestamp": 1624894931
   }
 }
