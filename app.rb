@@ -16,5 +16,18 @@ class MakersBnb < Sinatra::Base
   get "/test" do
     "Hello JAMI"
   end
+
+  get '/' do
+    redirect('/spaces')
+  end
+
+  get '/spaces' do
+    erb(:spaces)
+  end
+
+  get '/spaces/new' do
+    erb :new_space
+  end
+
   run! if app_file == $0
 end
