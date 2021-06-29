@@ -15,10 +15,10 @@ describe Space do
     it 'adds a new space to the database' do
       space = Space.add(name: name, description: description, city: city, price: price, hero_image: hero_image)
 
-      expect(space.name).to eq name
-      expect(space.description).to eq description
-      expect(space.city).to eq city
-      expect(space.price).to eq price
+      expect(space.name).to eq "#{name}"
+      expect(space.description).to eq "#{description}"
+      expect(space.city).to eq "#{city}"
+      expect(space.price).to eq "#{price}"
     end
 
   end

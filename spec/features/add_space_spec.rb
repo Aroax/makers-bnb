@@ -16,5 +16,4 @@ feature 'adding a space' do
     expect(current_path).to eq '/spaces'
     expect(page).to have_content("test space")
   end
-  
 end
