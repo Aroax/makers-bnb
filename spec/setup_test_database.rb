@@ -2,7 +2,7 @@ require 'pg'
 
 def setup_test_database
   connection = PG.connect(dbname: 'makers_bnb_test')
-  connection.exec("TRUNCATE booking, customer, message, space;")
+  # connection.exec("TRUNCATE booking, customer, message, space;")
 end
 
 def add_row_to_test_space_table

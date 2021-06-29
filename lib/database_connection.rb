@@ -3,6 +3,7 @@ require 'pg'
 class DatabaseConnection
 
   def self.setup(dbname)
+    # ENV['ENVIRONMENT'] = "test"
     if ENV['ENVIRONMENT'] == "test"
       @connection = PG.connect(dbname: 'makers_bnb_test')
     else
