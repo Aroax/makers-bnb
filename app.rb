@@ -25,8 +25,9 @@ class MakersBnb < Sinatra::Base
     erb(:spaces)
   end
 
-  get "/spaces/:id" do
+  post "/spaces/:id" do
     space_id = params[:id]
+    p params[:id]
     @space = Space.find_by_id(space_id: space_id)
     erb :space_listing
   end
@@ -36,7 +37,7 @@ class MakersBnb < Sinatra::Base
   end
 
   post "/spaces/add" do
-    Space.add(name: params[:name], description: params[:description],city: params[:city],price: params[:price],hero_image: params[:hero_image])
+    Space.add(name: params[:name], description: params[:description], city: params[:city], price: params[:price], hero_image: params[:hero_image])
     redirect "/spaces"
   end
 
