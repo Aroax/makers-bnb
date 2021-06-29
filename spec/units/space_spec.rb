@@ -23,4 +23,8 @@ describe Space do
 
   end
 
+  describe '.find' do
+    
+  end
+
 end

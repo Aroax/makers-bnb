@@ -25,6 +25,12 @@ class MakersBnb < Sinatra::Base
     erb(:spaces)
   end
 
+  get "/spaces/:id" do
+    space_id = params[:id]
+    @space = Space.find_by_id(space_id: space_id)
+    erb :space_listing
+  end
+
   get "/spaces/new" do
     erb :new_space
   end
