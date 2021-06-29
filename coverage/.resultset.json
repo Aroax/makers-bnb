@@ -1,14 +1,14 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/arranoakes/Projects/team-projects/makers-bnb/app.rb": {
+      "/Users/juelb/Desktop/Makers/makers-bnb/app.rb": {
         "lines": [
           1,
           1,
           1,
           1,
           1,
-          null,
+          1,
           null,
           1,
           1,
@@ -28,13 +28,29 @@
           null,
           1,
           1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          0,
           null,
           null,
           1,
           null
         ]
       },
-      "/Users/arranoakes/Projects/team-projects/makers-bnb/spec/features/add_space_spec.rb": {
+      "/Users/juelb/Desktop/Makers/makers-bnb/lib/space.rb": {
+        "lines": [
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/juelb/Desktop/Makers/makers-bnb/spec/features/add_space_spec.rb": {
         "lines": [
           1,
           null,
@@ -45,11 +61,11 @@
           1,
           null,
           1,
-          0,
-          0,
-          0,
+          1,
+          1,
+          1,
           null,
-          0,
+          1,
           null,
           0,
           0,
@@ -58,7 +74,7 @@
           null
         ]
       },
-      "/Users/arranoakes/Projects/team-projects/makers-bnb/spec/features/test_spec.rb": {
+      "/Users/juelb/Desktop/Makers/makers-bnb/spec/features/test_spec.rb": {
         "lines": [
           1,
           1,
@@ -68,7 +84,7 @@
           null
         ]
       },
-      "/Users/arranoakes/Projects/team-projects/makers-bnb/spec/units/space_spec.rb": {
+      "/Users/juelb/Desktop/Makers/makers-bnb/spec/units/space_spec.rb": {
         "lines": [
           1,
           null,
@@ -76,18 +92,11 @@
           null,
           1,
           null,
-          null,
-          null
-        ]
-      },
-      "/Users/arranoakes/Projects/team-projects/makers-bnb/lib/space.rb": {
-        "lines": [
-          1,
           null,
           null
         ]
       }
     },
-    "timestamp": 1624967381
+    "timestamp": 1624976917
   }
 }

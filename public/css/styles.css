@@ -1,0 +1,32 @@
+body {
+  /* background-color: bisque; */
+  padding-top: 70px;
+}
+
+.flex-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.badge {
+  margin-left: 5px;
+}
+
+.navbar-btn {
+  margin-right: 15px;
+}
+
+.listings {
+  margin: 0.5em;
+}
+
+.space-description {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* number of lines to show */
+  -webkit-box-orient: vertical;
+}
