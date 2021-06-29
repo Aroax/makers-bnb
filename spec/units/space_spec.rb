@@ -3,6 +3,12 @@ require_relative '../setup_test_database'
 
 describe Space do
   
+  let(:name) { double(:name) }
+  let(:description) { double(:description) }
+  let(:price) { 350 }
+  let(:city) { double(:city) }
+  let(:hero_image) { double(:hero_image) }
+  
   describe '.all' do
     it 'displays all spaces' do
       add_row_to_test_space_table
@@ -19,12 +25,8 @@ describe Space do
     end
   end
   
-  let(:name) { double(:name) }
-  let(:description) { double(:description) }
-  let(:price) { 350 }
-  let(:city) { double(:city) }
-  let(:hero_image) { double(:hero_image) }
 
+  
   describe '.add' do
     it 'adds a new space to the database' do
       space = Space.add(name: name, description: description, city: city, price: price, hero_image: hero_image)

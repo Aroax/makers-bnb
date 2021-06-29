@@ -2,8 +2,8 @@ require "sinatra/base"
 require "sinatra/reloader"
 require "sinatra/flash"
 require "./database_connection_setup"
+require_relative "lib/space"
 require "uri"
-require_relative './lib/space.rb'
 
 class MakersBnb < Sinatra::Base
   configure :development do
@@ -17,9 +17,22 @@ class MakersBnb < Sinatra::Base
     "Hello JAMI"
   end
 
-  get "/space" do
+  get "/" do
+    redirect("/spaces")
+  end
+
+  get "/spaces" do
     @spaces = Space.all
-    erb :"spaces/space"
+    erb :spaces
+  end
+
+  get "/spaces/new" do
+    erb :"spaces/new_space"
+  end
+
+  post "/spaces/add" do
+    Space.add(name: params[:name], description: params[:description],city: params[:city],price: params[:price],hero_image: params[:hero_image])
+    redirect "/spaces"
   end
 
   run! if app_file == $0
