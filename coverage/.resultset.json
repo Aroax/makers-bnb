@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/arranoakes/Projects/team-projects/makers-bnb/app.rb": {
+      "/Users/irinagc/Desktop/Projects/w7_team_makersbnb/makers-bnb/app.rb": {
         "lines": [
           1,
           1,
@@ -27,23 +27,24 @@
           null,
           null,
           1,
+          5,
+          5,
+          null,
+          null,
+          1,
           2,
           null,
           null,
           1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
+          2,
+          2,
           null,
           null,
           1,
           null
         ]
       },
-      "/Users/arranoakes/Projects/team-projects/makers-bnb/lib/space.rb": {
+      "/Users/irinagc/Desktop/Projects/w7_team_makersbnb/makers-bnb/lib/space.rb": {
         "lines": [
           1,
           null,
@@ -51,9 +52,9 @@
           1,
           null,
           1,
-          2,
+          0,
           null,
-          2,
+          0,
           null,
           null,
           null,
@@ -64,17 +65,45 @@
           null,
           null,
           1,
-          2,
-          2,
-          2,
-          2,
-          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          1,
+          null,
+          1,
+          30,
+          30,
+          30,
+          30,
+          30,
+          null,
+          null,
+          1,
+          6,
+          6,
+          27,
+          null,
+          null,
+          null,
+          1,
+          3,
+          3,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
           null,
           null,
           null
         ]
       },
-      "/Users/arranoakes/Projects/team-projects/makers-bnb/spec/features/add_space_spec.rb": {
+      "/Users/irinagc/Desktop/Projects/w7_team_makersbnb/makers-bnb/spec/features/add_space_spec.rb": {
         "lines": [
           1,
           null,
@@ -97,7 +126,7 @@
           null
         ]
       },
-      "/Users/arranoakes/Projects/team-projects/makers-bnb/spec/features/test_spec.rb": {
+      "/Users/irinagc/Desktop/Projects/w7_team_makersbnb/makers-bnb/spec/features/test_spec.rb": {
         "lines": [
           1,
           1,
@@ -107,7 +136,21 @@
           null
         ]
       },
-      "/Users/arranoakes/Projects/team-projects/makers-bnb/spec/units/database_connection_spec.rb": {
+      "/Users/irinagc/Desktop/Projects/w7_team_makersbnb/makers-bnb/spec/features/view_spaces_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/irinagc/Desktop/Projects/w7_team_makersbnb/makers-bnb/spec/units/database_connection_spec.rb": {
         "lines": [
           1,
           1,
@@ -136,37 +179,51 @@
           null
         ]
       },
-      "/Users/arranoakes/Projects/team-projects/makers-bnb/spec/units/space_spec.rb": {
+      "/Users/irinagc/Desktop/Projects/w7_team_makersbnb/makers-bnb/spec/units/space_spec.rb": {
         "lines": [
           1,
+          1,
           null,
           1,
+          null,
           2,
           2,
           2,
           2,
           2,
           null,
-          null,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
           1,
           1,
           1,
           1,
           null,
+          1,
+          1,
           null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
           null,
           null,
           null
         ]
       }
     },
-    "timestamp": 1624978503
+    "timestamp": 1624984758
   }
 }
