@@ -12,7 +12,7 @@ describe Space do
   describe '.all' do
     it 'displays all spaces' do
       add_row_to_test_space_table
-      space = Space.all
+      space = Space.show_all
 
       expect(space.length).to eq 1
       expect(space.first).to be_a Space

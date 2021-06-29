@@ -22,7 +22,7 @@ class MakersBnb < Sinatra::Base
   end
 
   get "/spaces" do
-    @spaces = Space.all
+    @spaces = Space.show_all
     erb :spaces
   end
 

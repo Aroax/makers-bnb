@@ -28,6 +28,13 @@ class Space
     )
   end
 
+  def self.show_all
+    spaces = DatabaseConnection.query(sql: "SELECT * FROM space;", params: [])
+    spaces.map do |space|
+      Space.new(id: space['id'], name: space['name'], description: space['description'], price: space['price'], city: space['city'], hero_image: space['hero_image'])
+    end
+  end
+
   def initialize(id:, name:, description:, city:, price:, hero_image:)
     @id = id
     @name = name
@@ -36,4 +43,5 @@ class Space
     @price = price
     @hero_image = hero_image
   end
+
 end
