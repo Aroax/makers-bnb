@@ -1,6 +1,3 @@
-# Setup with heavy referencing of the Bookmark Manager 'Extracting a Database Setup Object' Chapter 14
-# (and some educated guesswork after having absorbed Eddie's new chapter 12 on security considerations)
-
 require 'pg'
 require './lib/database_connection'
 
