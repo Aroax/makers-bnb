@@ -1,14 +1,14 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/arranoakes/Projects/team-projects/makers-bnb/app.rb": {
+      "/Users/mikeconnolly/Desktop/Projects/MakersBnB/makers-bnb/app.rb": {
         "lines": [
           1,
           1,
           1,
           1,
           1,
-          null,
+          1,
           null,
           1,
           1,
@@ -18,12 +18,37 @@
           1,
           1,
           null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
           null,
           1,
           null
         ]
       },
-      "/Users/arranoakes/Projects/team-projects/makers-bnb/spec/features/test_spec.rb": {
+      "/Users/mikeconnolly/Desktop/Projects/MakersBnB/makers-bnb/lib/space.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          2,
+          2,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/mikeconnolly/Desktop/Projects/MakersBnB/makers-bnb/spec/features/test_spec.rb": {
         "lines": [
           1,
           1,
@@ -33,26 +58,65 @@
           null
         ]
       },
-      "/Users/arranoakes/Projects/team-projects/makers-bnb/spec/units/space_spec.rb": {
+      "/Users/mikeconnolly/Desktop/Projects/MakersBnB/makers-bnb/spec/features/view_spaces_spec.rb": {
         "lines": [
           1,
           null,
           1,
+          1,
+          1,
+          1,
+          1,
           null,
+          null
+        ]
+      },
+      "/Users/mikeconnolly/Desktop/Projects/MakersBnB/makers-bnb/spec/units/database_connection_spec.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
           1,
           null,
           null,
           null
         ]
       },
-      "/Users/arranoakes/Projects/team-projects/makers-bnb/lib/space.rb": {
+      "/Users/mikeconnolly/Desktop/Projects/MakersBnB/makers-bnb/spec/units/space_spec.rb": {
         "lines": [
           1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
           null,
           null
         ]
       }
     },
-    "timestamp": 1624900433
+    "timestamp": 1624978073
   }
 }
