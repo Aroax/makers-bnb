@@ -10,7 +10,7 @@ class DatabaseConnection
     end
   end
 
-  def self.query(sql: , params: )
+  def self.query(sql: ,params: )
     @connection.exec_params(sql, params)
   end
 end

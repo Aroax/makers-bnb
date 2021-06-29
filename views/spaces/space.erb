@@ -8,8 +8,11 @@
   </head>
   <body>
     <div class="container">
-      <h1>Hello world!</h1>
-      <p> <%= p @spaces %> </p>
+      <h1>Dream Test House</h1>
+
+      <% @spaces.each do |space| %>
+      <p> <%= p space.name %> </p>
+      <% end %>
     </div>
 
   </body>

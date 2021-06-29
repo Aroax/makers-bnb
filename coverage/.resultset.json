@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/mikeconnolly/Desktop/Projects/MakersBnB/makers-bnb/app.rb": {
+      "/Users/irinagc/Desktop/Projects/w7_team_makersbnb/makers-bnb/app.rb": {
         "lines": [
           1,
           1,
@@ -31,9 +31,11 @@
           null
         ]
       },
-      "/Users/mikeconnolly/Desktop/Projects/MakersBnB/makers-bnb/lib/space.rb": {
+      "/Users/irinagc/Desktop/Projects/w7_team_makersbnb/makers-bnb/lib/space.rb": {
         "lines": [
           1,
+          1,
+          null,
           1,
           null,
           1,
@@ -41,14 +43,22 @@
           1,
           2,
           2,
+          2,
+          2,
+          2,
+          null,
+          null,
           1,
+          2,
+          2,
+          2,
           null,
           null,
           null,
           null
         ]
       },
-      "/Users/mikeconnolly/Desktop/Projects/MakersBnB/makers-bnb/spec/features/test_spec.rb": {
+      "/Users/irinagc/Desktop/Projects/w7_team_makersbnb/makers-bnb/spec/features/test_spec.rb": {
         "lines": [
           1,
           1,
@@ -58,7 +68,7 @@
           null
         ]
       },
-      "/Users/mikeconnolly/Desktop/Projects/MakersBnB/makers-bnb/spec/features/view_spaces_spec.rb": {
+      "/Users/irinagc/Desktop/Projects/w7_team_makersbnb/makers-bnb/spec/features/view_spaces_spec.rb": {
         "lines": [
           1,
           null,
@@ -71,7 +81,7 @@
           null
         ]
       },
-      "/Users/mikeconnolly/Desktop/Projects/MakersBnB/makers-bnb/spec/units/database_connection_spec.rb": {
+      "/Users/irinagc/Desktop/Projects/w7_team_makersbnb/makers-bnb/spec/units/database_connection_spec.rb": {
         "lines": [
           1,
           1,
@@ -92,7 +102,7 @@
           null
         ]
       },
-      "/Users/mikeconnolly/Desktop/Projects/MakersBnB/makers-bnb/spec/units/space_spec.rb": {
+      "/Users/irinagc/Desktop/Projects/w7_team_makersbnb/makers-bnb/spec/units/space_spec.rb": {
         "lines": [
           1,
           1,
@@ -103,20 +113,20 @@
           1,
           1,
           null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
           null,
           null,
           null
         ]
       }
     },
-    "timestamp": 1624978073
+    "timestamp": 1624980565
   }
 }
