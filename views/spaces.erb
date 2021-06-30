@@ -11,7 +11,13 @@
     <a href="/spaces/new">add a space</a>
 
       <% @spaces.each do |space| %>
-      <p> <%= p space.name %> </p>
+      <p> <a href="/spaces/space/<%= space.id %>"><img src="<%= space.hero_image %>" alt="hero"> </a></p>
+      <p> name: <%= space.name %> </p>
+      <p> city: <%= space.city %> </p>
+
+          <form action='/spaces/<%= space.id %>' method='post'>
+            <input type="submit" name="<%= space.id %>" value="see more">
+          </form>
       <% end %>
     </div>
 
