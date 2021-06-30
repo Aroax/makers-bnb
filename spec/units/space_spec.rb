@@ -14,7 +14,7 @@ describe Space do
       add_row_to_test_space_table
       space = Space.show_all
 
-      expect(space.length).to eq 2
+      expect(space.length).to eq 1
       expect(space.first).to be_a Space
       expect(space.first.name).to eq "Dream Test House"
       expect(space.first.description).to eq "lorem ipsum"

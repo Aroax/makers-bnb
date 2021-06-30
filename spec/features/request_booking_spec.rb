@@ -4,8 +4,8 @@ feature 'booking spaces' do
       # add_space
       #
       # visit('/spaces')
-      # first('.space').click_link('more details')
-      # click_button('request to book')
+      # first('Dream House').click_link('View')
+      # click_button('Request to Book')
       #
       # expect(current_path).to eq '/users/dashboard'
       #
@@ -17,3 +17,16 @@ feature 'booking spaces' do
   end
 
 end
+# within("//li[@id='employee']") do
+#   fill_in 'Name', with: 'Jimmy'
+# end
+# within(:css, "li#employee") do
+#   fill_in 'Name', with: 'Jimmy'
+# end
+# within_fieldset('Employee') do
+#   fill_in 'Name', with: 'Jimmy'
+# end
+# within_table('Employee') do
+#   fill_in 'Name', with: 'Jimmy'
+# end
+# locate("//*[@id='overlay'").find("//h1").click
