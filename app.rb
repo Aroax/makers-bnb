@@ -30,9 +30,9 @@ class MakersBnb < Sinatra::Base
   get "/spaces/space/:id" do
     # temp bypass of user_id
     session[:user_id] = 1
-    
+
     @space = Space.find_by_id(space_id: params[:id])
-    erb :space_listing_mockup
+    erb :space_listing
   end
 
   post "/spaces/space/:id/book" do

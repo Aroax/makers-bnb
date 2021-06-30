@@ -1,25 +1,83 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <meta charset="utf-8">
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MakersBnB</title>
-  </head>
-  <body>
-    <div class="container">
-    <a href="/spaces/new">add a space</a>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
 
-      <% @spaces.each do |space| %>
-      <p> <a href="/spaces/space/<%= space.id %>"><img src="<%= space.hero_image %>" alt="hero"> </a></p>
-      <p> name: <%= space.name %> </p>
-      <p> city: <%= space.city %> </p>
-
-          <form action='/spaces/<%= space.id %>' method='post'>
-            <input type="submit" name="<%= space.id %>" value="see more">
-          </form>
-      <% end %>
+<body>
+<div class="container">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">MakersBnB</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Spaces</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Dashboard</a>
+        </li>
+      </ul>
+      <span class="navbar-text">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item me-2">
+        <a href="#" class="navbar-link mr-5">Sign in</a>
+        </li>
+        <li class="nav-item">
+       <a href="#" class="navbar-link mr-5">Register</a>
+        </li>
+        </ul>
+      </span>
     </div>
+  </div>
+</nav>
 
-  </body>
+    <main class="container">
+        <section class="text-center pt-5 pb-5 mb-5">
+            <h1 class="display-5">Welcome to MakersBnB</h1>
+            <p class="lead text-muted ">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta, inventore</p>
+            <form action="spaces/new" method="get">
+            <input type="submit" class="btn btn-default" value="List a Space">
+            </form>
+        </section>
+
+        <section class="">
+          
+            <div class="container mb-5">
+              <div class="row gx-5">
+                <% @spaces.each do |space| %>
+                  <div class="col-sm-12 col-md-6">
+                      <div class="card mb-5" id="space">
+                        <img class="card-img-top img-fluid" src="<%= space.hero_image %>"  alt="placeholder">
+                            <div class="card-body">
+                              <h3 class="card-title"> <%= space.name %></h3>
+                              <p class="card-text text-muted space-description"><%= space.description %>
+                              </p>
+                              <a href="/spaces/space/<%= %>" class="btn btn-primary text-right" role="button">View</a>
+                            </div>
+                        </div>
+                    </div>
+                <% end %>
+              </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer mt-auto">
+        <div class="text-center p-3" style="background-color: white">
+            © 2021 Copyright:<a class="text-dark" href="https://github.com/Aroax/makers-bnb">MakersBnB team</a>
+        </div>
+    </footer>
+    </div>
+</body>
+
 </html>
