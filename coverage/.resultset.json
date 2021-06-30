@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/irinagc/Desktop/Projects/w7_team_makersbnb/makers-bnb/app.rb": {
+      "/Users/juelb/Desktop/Makers/makers-bnb/app.rb": {
         "lines": [
           1,
           1,
@@ -27,24 +27,29 @@
           null,
           null,
           1,
-          5,
-          5,
-          null,
-          null,
-          1,
+          2,
           2,
           null,
           null,
           1,
-          2,
-          2,
+          0,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
           null,
           null,
           1,
           null
         ]
       },
-      "/Users/irinagc/Desktop/Projects/w7_team_makersbnb/makers-bnb/lib/space.rb": {
+      "/Users/juelb/Desktop/Makers/makers-bnb/lib/space.rb": {
         "lines": [
           1,
           null,
@@ -52,11 +57,20 @@
           1,
           null,
           1,
-          0,
+          2,
+          2,
           null,
-          0,
           null,
           null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
           null,
           null,
           null,
@@ -65,45 +79,28 @@
           null,
           null,
           1,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          1,
-          null,
-          1,
-          30,
-          30,
-          30,
-          30,
-          30,
-          null,
-          null,
-          1,
-          6,
-          6,
-          27,
-          null,
           null,
           null,
           1,
           3,
           3,
+          14,
           null,
           null,
           null,
-          null,
-          null,
-          null,
+          1,
+          17,
+          17,
+          17,
+          17,
+          17,
+          17,
           null,
           null,
           null
         ]
       },
-      "/Users/irinagc/Desktop/Projects/w7_team_makersbnb/makers-bnb/spec/features/add_space_spec.rb": {
+      "/Users/juelb/Desktop/Makers/makers-bnb/spec/features/add_space_spec.rb": {
         "lines": [
           1,
           null,
@@ -111,37 +108,23 @@
           1,
           1,
           null,
-          1,
+          0,
           null,
-          1,
-          1,
-          1,
-          1,
+          0,
+          0,
+          0,
+          0,
           null,
-          1,
+          0,
           null,
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/Users/irinagc/Desktop/Projects/w7_team_makersbnb/makers-bnb/spec/features/test_spec.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
+          0,
+          0,
           null,
           null
         ]
       },
-      "/Users/irinagc/Desktop/Projects/w7_team_makersbnb/makers-bnb/spec/features/view_spaces_spec.rb": {
+      "/Users/juelb/Desktop/Makers/makers-bnb/spec/features/test_spec.rb": {
         "lines": [
-          1,
-          null,
-          1,
-          1,
           1,
           1,
           1,
@@ -150,7 +133,21 @@
           null
         ]
       },
-      "/Users/irinagc/Desktop/Projects/w7_team_makersbnb/makers-bnb/spec/units/database_connection_spec.rb": {
+      "/Users/juelb/Desktop/Makers/makers-bnb/spec/features/view_spaces_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          null,
+          null
+        ]
+      },
+      "/Users/juelb/Desktop/Makers/makers-bnb/spec/units/database_connection_spec.rb": {
         "lines": [
           1,
           1,
@@ -179,18 +176,18 @@
           null
         ]
       },
-      "/Users/irinagc/Desktop/Projects/w7_team_makersbnb/makers-bnb/spec/units/space_spec.rb": {
+      "/Users/juelb/Desktop/Makers/makers-bnb/spec/units/space_spec.rb": {
         "lines": [
           1,
           1,
           null,
           1,
           null,
-          2,
-          2,
-          2,
-          2,
-          2,
+          3,
+          3,
+          3,
+          3,
+          3,
           null,
           1,
           1,
@@ -214,6 +211,21 @@
           1,
           1,
           null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
           1,
           1,
           1,
@@ -224,6 +236,6 @@
         ]
       }
     },
-    "timestamp": 1624984758
+    "timestamp": 1625054201
   }
 }
