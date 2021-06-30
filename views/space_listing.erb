@@ -56,7 +56,7 @@
             <section class="text-center">
                 <h4>Select check-in and check-out dates</h4>
                 <div class="grid">
-                    <form action="" class="form">
+                    <form action="/spaces/space/<%= @space.id %>/book" method="post" class="form">
                         <div class="col">
                             <label>From</label>
                             <input type="date" name="date-in" class="form-control">
@@ -65,7 +65,7 @@
                             <label>To</label>
                             <input type="date" name="date-out" class="form-control">
                         </div>
-                        <button class="btn btn-primary form-control">Request to Book</button>
+                         <input type="submit" class="btn btn-primary form-control" value="Request to Book">
                     </form>
                 </div>
             </section>

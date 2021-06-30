@@ -12,7 +12,7 @@ gem 'pg'
 gem 'sinatra'
 gem 'sinatra-flash'
 gem 'bcrypt'
-gem 'bootstrap', '~> 5.0.2'
+gem 'bootstrap', '~> 5.0.1'
 gem 'puma'
 
 
