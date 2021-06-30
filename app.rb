@@ -36,8 +36,16 @@ class MakersBnb < Sinatra::Base
   end
 
   post "/spaces/space/:id/book" do
-    session[:current_booking] = Booking.add(space_id: params[:id])
-    redirect '/users/dashboard'
+    # p params
+
+    session[:current_booking] = Booking.add(space_id: params[:id], date_in: params[:date_in], date_out: params[:date_out])
+    @unavailable = Booking.unavailable(space_id: params[:id], date_in: params[:date_in])
+    if @unavailable == false
+      redirect "/users/dashboard"
+    else
+      # redirect "/spaces"
+      flash[:notice] = "Sorry, this property is unavailable on this date :("
+    end
   end
 
   get "/spaces/new" do

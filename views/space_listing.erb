@@ -59,14 +59,17 @@
                     <form action="/spaces/space/<%= @space.id %>/book" method="post" class="form">
                         <div class="col">
                             <label>From</label>
-                            <input type="date" name="date-in" class="form-control">
+                            <input type="date" name="date_in" class="form-control">
                         </div>
                         <div class="col">
                             <label>To</label>
-                            <input type="date" name="date-out" class="form-control">
+                            <input type="date" name="date_out" class="form-control">
                         </div>
                          <input type="submit" class="btn btn-primary form-control" value="Request to Book">
                     </form>
+                    <hr>
+                    <%= flash[:notice] %>
+                    <hr>
                 </div>
             </section>
             <hr>
