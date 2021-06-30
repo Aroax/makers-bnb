@@ -2,7 +2,7 @@ feature 'adding a space' do
 
   scenario 'hosts can add a space' do
     visit '/spaces'
-    click_link('add a space')
+    click_button('List a Space')
 
     expect(current_path).to eq '/spaces/new'
 

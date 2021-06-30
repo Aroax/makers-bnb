@@ -1,7 +1,7 @@
 
 def add_space
   visit '/spaces'
-      click_link('add a space')
+      click_button('List a Space')
 
       fill_in(:name, with: "Dream House")
       fill_in(:description, with: "lorem ipsum")
