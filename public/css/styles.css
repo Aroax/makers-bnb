@@ -130,6 +130,25 @@ body {
   width: 80%;
 }
 
+/* end of Common classes */
+
+body {
+  padding-top: 50px;
+  font-family: var(--font-fam);
+  line-height: 1.5;
+  letter-spacing: var(--letter-spacing);
+}
+
+.col-grid {
+  display: grid;
+  place-items: center;
+}
+
+.center-div {
+  margin: 0 auto;
+  width: 80%;
+}
+
 .listings {
   margin: 0.5em;
 }
@@ -138,7 +157,8 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 1; /* number of lines to show */
+  -webkit-line-clamp: 1;
+  /* number of lines to show */
   -webkit-box-orient: vertical;
 }
 
