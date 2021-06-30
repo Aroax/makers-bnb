@@ -26,16 +26,7 @@ class MakersBnb < Sinatra::Base
     erb :spaces
   end
 
-  # post "/spaces/:id" do
-  #   space_id = params[:id]
-  #   p params[:id]
-  #   @space = Space.find_by_id(space_id: space_id)
-  #   erb :space_listing
-  # end
-
   get "/spaces/space/:id" do
-    "params #{params[:id]}"
-    space_id = params[:id]
     @space = Space.find_by_id(space_id: params[:id])
     erb :space_listing_mockup
   end
@@ -47,6 +38,10 @@ class MakersBnb < Sinatra::Base
   post "/spaces/add" do
     Space.add(name: params[:name], description: params[:description], city: params[:city], price: params[:price], hero_image: params[:hero_image])
     redirect "/spaces"
+  end
+
+  get "/users/dashboard" do
+    erb :"users/user_dashboard"
   end
 
   run! if app_file == $0
