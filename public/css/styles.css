@@ -1,14 +1,108 @@
-body {
-  /* background-color: bisque; */
-  padding-top: 70px;
+:root {
+  --primary-color: #4458dc;
+  --primary-color2: #854fee;
+  --title-color: #141313;
+  --text-color: #777777;
+  --border-color: #201f1f17;
+  --gradient-color: linear-gradient(90deg, #4458dc 0%, #854fee 100%);
+  --shadow-color: 0px 10px 30px rgba(118, 85, 225, 0.3);
+  --box-shadow: 0px 10px 40px rgba(63, 63, 63, 0.205);
+  --white-color: rgb(255, 255, 255);
+  --font-fam: "Tahoma", sans-serif;
+  --letter-spacing: 0.1em;
+  --border-rd: 5px;
 }
 
-.flex-wrap {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
+/* Common Classes */
+.para {
+  color: var(--text-color);
+  font-size: 16px;
+}
+
+.lead {
+  font-size: 18px;
+  color: var(--text-color);
+}
+
+a {
+  color: var(--primary-color);
+}
+
+a:hover {
+  color: var(--primary-color);
+}
+
+.btn {
+  padding: 0.8rem 2.2rem;
+  font-weight: 500;
+  position: relative;
+  border: none;
+  border-radius: var(--border-rd);
+  background-clip: padding-box;
+  transition: 0.25s ease;
+  letter-spacing: var(--letter-spacing);
+  /* box-shadow: var(--box-shadow); */
+}
+
+.btn-primary {
+  background: var(--gradient-color);
+  color: whitesmoke;
+  border: 2px solid var(--primary-color);
+}
+
+.btn-default {
+  border: 2px solid var(--primary-color);
+}
+
+.btn-default:hover,
+.btn-primary:hover {
+  border: 2px solid var(--primary-color);
+}
+
+.btn-default:hover {
+  background-color: var(--white-color);
+}
+
+.btn:hover {
+  transform: scale(0.95);
+  opacity: 1;
+  filter: opacity(1);
+}
+
+button:focus,
+button:active button:hover .btn:active,
+.btn.active {
+  outline: 0px !important;
+  box-shadow: none !important;
+}
+
+.title-text {
+  font: normal bold 50px/ 72px;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.para {
+  color: var(--text-color);
+}
+
+input[type="date"] {
+  border-radius: var(--border-rd);
+  border: 2px solid var(--border-color);
+}
+
+hr {
+  margin: 3em 0;
+}
+
+footer {
+  margin: 2em;
+}
+
+.form-control {
+  height: 3em;
 }
 
 .badge {
@@ -17,6 +111,23 @@ body {
 
 .navbar-btn {
   margin-right: 15px;
+}
+/* end of Common classes */
+
+body {
+  padding-top: 50px;
+  font-family: var(--font-fam);
+  line-height: 1.5;
+  letter-spacing: var(--letter-spacing);
+}
+.col-grid {
+  display: grid;
+  place-items: center;
+}
+
+.center-div {
+  margin: 0 auto;
+  width: 80%;
 }
 
 .listings {
@@ -29,4 +140,13 @@ body {
   display: -webkit-box;
   -webkit-line-clamp: 1; /* number of lines to show */
   -webkit-box-orient: vertical;
+}
+
+.form > * {
+  margin: 2em 0;
+}
+
+.grid {
+  display: grid;
+  place-items: center;
 }

@@ -7,13 +7,22 @@
     <title>MakersBnB</title>
   </head>
   <body>
+    <a href="/spaces/new">add a space</a>      
     <div class="container">
-    <a href="/spaces/new">add a space</a>
-
-      <% @spaces.each do |space| %>
-      <p> <%= p space.name %> </p>
-      <% end %>
+        <% @spaces.each do |space| %>
+          <div class="col-sm-12 col-md-6">
+            <div class="thumbnail">
+                <div class="caption">
+                    <h3><%= space.name %></h3>
+                    <p class="space-description text-muted"><%= space.description %>
+                    </p>
+                    <p class="text-right">
+                        <a href="#" class="btn btn-primary" role="button">View</a>
+                    </p>
+                </div>
+            </div>
+          </div>
+        <% end %>
     </div>
-
   </body>
 </html>
