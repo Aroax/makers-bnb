@@ -170,3 +170,7 @@ body {
   display: grid;
   place-items: center;
 }
+
+.space-name {
+  margin-top: 1em;
+}
