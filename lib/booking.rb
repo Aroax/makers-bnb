@@ -5,6 +5,7 @@ class Booking
   attr_reader :id, :customer_id, :space_id, :request, :date_in, :date_out
 
   def self.add(space_id: )
+    # Temporary fixed variables - replace with path dynamic arguments
     customer_id = 1
     request = "approved"
     date_in = Date.parse('2021-09-03')

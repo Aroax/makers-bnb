@@ -28,12 +28,16 @@ class MakersBnb < Sinatra::Base
   end
 
   get "/spaces/space/:id" do
+    # temp bypass of user_id
+    session[:user_id] = 1
+    
     @space = Space.find_by_id(space_id: params[:id])
     erb :space_listing_mockup
   end
 
   post "/spaces/space/:id/book" do
     Booking.add(space_id: params[:id])
+    redirect '/users/dashboard'
   end
 
   get "/spaces/new" do
@@ -45,9 +49,8 @@ class MakersBnb < Sinatra::Base
     redirect "/spaces"
   end
 
-
-
   get "/users/dashboard" do
+
     erb :"users/user_dashboard"
   end
 
