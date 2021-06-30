@@ -17,7 +17,7 @@ describe Booking do
       request = Booking.add(space_id: space_id)
       booking = Booking.find_by_space_id(space_id: space_id)
 
-      expect(request.space_id).to eq booking.space_id
+      expect(request.space_id).to eq booking.first.space_id
 
     end
   end
@@ -30,7 +30,7 @@ describe Booking do
       expect(booking.first.customer_id).to eq "#{customer_id}"
       expect(booking.first.space_id).to eq "#{space_id}"
       expect(booking.first.request).to eq "#{request}"
-      expect(booking.first.date_in).to eq date_in
+      expect(booking.first.date_in).to eq "#{date_in}"
       expect(booking.first.date_out).to eq "#{date_out}"
     end
   end
