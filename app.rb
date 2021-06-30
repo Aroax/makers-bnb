@@ -49,6 +49,15 @@ class MakersBnb < Sinatra::Base
     redirect "/spaces"
   end
 
+  get "/users/register" do
+    erb :"users/user_registration"
+  end
+
+  post "/users/session" do
+    session[:user] = User.add(params[:email], params[:password])
+    redirect '/spaces'
+  end
+
   get "/users/dashboard" do
     @booking = session[:current_booking]
     @space = Space.find_by_id(space_id: @booking.space_id)
