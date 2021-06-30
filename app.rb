@@ -37,7 +37,7 @@ class MakersBnb < Sinatra::Base
     "params #{params[:id]}"
     space_id = params[:id]
     @space = Space.find_by_id(space_id: params[:id])
-    erb :space_listing
+    erb :space_listing_mockup
   end
 
   get "/spaces/new" do
