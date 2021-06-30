@@ -3,6 +3,7 @@ require "sinatra/reloader"
 require "sinatra/flash"
 require "./database_connection_setup"
 require_relative "lib/space"
+require_relative "lib/booking"
 require "uri"
 
 class MakersBnb < Sinatra::Base
@@ -31,6 +32,10 @@ class MakersBnb < Sinatra::Base
     erb :space_listing_mockup
   end
 
+  post "/spaces/space/:id/book" do
+    Booking.add(space_id: params[:id])
+  end
+
   get "/spaces/new" do
     erb :"spaces/new_space"
   end
@@ -39,6 +44,8 @@ class MakersBnb < Sinatra::Base
     Space.add(name: params[:name], description: params[:description], city: params[:city], price: params[:price], hero_image: params[:hero_image])
     redirect "/spaces"
   end
+
+
 
   get "/users/dashboard" do
     erb :"users/user_dashboard"
