@@ -24,6 +24,7 @@ class MakersBnb < Sinatra::Base
   end
 
   get "/spaces" do
+    @active = "active"
     @spaces = Space.show_all
     @user = get_session
     erb :spaces

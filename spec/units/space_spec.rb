@@ -1,17 +1,16 @@
-require_relative '../../lib/space'
-require_relative '../setup_test_database'
+require_relative "../../lib/space"
+require_relative "../setup_test_database"
 
 describe Space do
-
-  let(:customer_id) { double(:customer_id)}
+  let(:customer_id) { 2 }
   let(:name) { double(:name) }
   let(:description) { double(:description) }
   let(:price) { 350 }
   let(:city) { double(:city) }
   let(:hero_image) { double(:hero_image) }
 
-  describe '.all' do
-    it 'displays all spaces' do
+  describe ".all" do
+    it "displays all spaces" do
       add_row_to_test_space_table
       space = Space.show_all
 
@@ -25,10 +24,8 @@ describe Space do
     end
   end
 
-
-
-  describe '.add' do
-    it 'adds a new space to the database' do
+  describe ".add" do
+    it "adds a new space to the database" do
       space = Space.add(customer_id: customer_id, name: name, description: description, city: city, price: price, hero_image: hero_image)
 
       expect(space.name).to eq "#{name}"
