@@ -32,6 +32,33 @@ class Booking
     booking.first
   end
 
+  def self.sort_bookings(customer_id:, role:)
+    @host = []
+    @guest = []
+
+
+    bookings = Booking.find_by_customer_id(customer_id: customer_id)
+
+    owned_spaces = Space.find_by_customer_id(customer_id: customer_id)
+    owned_space_ids = []
+
+    owned_spaces.each { |space| owned_space_ids << space.id }
+
+
+    bookings.each do |booking|
+
+      if owned_space_ids.include?(booking.space_id)
+        @host << booking
+      else
+        @guest << booking
+      end
+    end
+
+    return @host if role == "host"
+    return @guest if role == "guest"
+
+  end
+
   def self.last(customer_id:)
     result = DatabaseConnection.query(sql: "SELECT * FROM booking WHERE customer_id=$1 ORDER BY id DESC LIMIT 1;", params: [customer_id])
 
@@ -57,4 +84,6 @@ class Booking
     end
     result.empty?
   end
+
+
 end
