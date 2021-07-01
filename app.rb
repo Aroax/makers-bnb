@@ -1,7 +1,7 @@
 require "sinatra/base"
 require "sinatra/reloader"
 require "sinatra/flash"
-require "./database_connection_setup"
+require_relative "./database_connection_setup"
 require_relative "lib/space"
 require_relative "lib/booking"
 require_relative "lib/user"
