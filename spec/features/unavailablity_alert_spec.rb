@@ -3,6 +3,7 @@ feature "Unavailability Alert" do
     register_user(email: "hello@example.com", password: "qwerty")
     add_space
     request_space
+    visit "/spaces"
     request_space
 
     expect(page).to have_content "Sorry, this property is unavailable on 2021-09-03 :("
