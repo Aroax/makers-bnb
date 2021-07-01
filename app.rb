@@ -35,12 +35,6 @@ class MakersBnb < Sinatra::Base
     erb :space_listing
   end
 
-  post "/spaces/space/:id/book" do
-    @user = get_session
-    session[:current_booking] = Booking.add(space_id: params[:id], customer_id: @user.id)
-    redirect '/users/dashboard'
-  end
-
   get "/spaces/new" do
     @user = get_session
     erb :"spaces/new_space"
@@ -65,24 +59,22 @@ class MakersBnb < Sinatra::Base
       session[:user] = User.authenticate(email: params[:email], password: params[:password])
       if session[:user].nil?
         flash[:notice] = "please check email and/or password"
-        redirect('/users/login')
+        redirect("/users/login")
       else
-        redirect('/spaces')
+        redirect("/spaces")
       end
-    elsif
-      !params[:email].empty? && !params[:password].empty?
+    elsif !params[:email].empty? && !params[:password].empty?
       session[:user] = User.add(email: params[:email], password: params[:password])
-      redirect('/spaces')
+      redirect("/spaces")
     else
       flash[:notice] = "Field cannot be empty, please try again"
-      redirect('/users/register')
+      redirect("/users/register")
     end
-
   end
 
   get "/users/session/destroy" do
     session[:user] = nil
-    redirect '/spaces'
+    redirect "/spaces"
   end
 
   get "/users/dashboard" do
@@ -93,6 +85,22 @@ class MakersBnb < Sinatra::Base
     erb :"users/user_dashboard"
   end
 
+  post "/spaces/space/:id/book" do
+    @user = get_session
+    space = Space.find_by_id(space_id: params[:id])
+
+    if Booking.available?(space_id: params[:id], date_in: params[:date_in])
+      session[:current_booking] = Booking.add(customer_id: @user.id, space_id: params[:id], date_in: params[:date_in], date_out: params[:date_out])
+      redirect "/users/dashboard"
+    else
+      flash[:unavailable_alert] = "Sorry, this property is unavailable on #{params[:date_in]} :("
+      redirect "/spaces/space/#{space.id}"
+    end
+  end
+
+  def available?(space_id, date_in)
+    Booking.available?(space_id: space_id, date_in: date_in)
+  end
 
   def get_session
     session[:user] if logged_in?
