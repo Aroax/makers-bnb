@@ -39,16 +39,9 @@ class Space
 
   def self.find_by_customer_id(customer_id:)
     result = DatabaseConnection.query(sql: "SELECT * FROM space WHERE customer_id = $1;", params: [customer_id])
-    space = Space.new(
-      customer_id: result[0]["customer_id"],
-      id: result[0]["id"],
-      name: result[0]["name"],
-      description: result[0]["description"],
-      city: result[0]["city"],
-      price: result[0]["price"],
-      hero_image: result[0]["hero_image"],
-    )
-    return space
+    result.map do |space|
+      Space.new(customer_id: space["customer_id"], id: space["id"], name: space["name"], description: space["description"], price: space["price"], city: space["city"], hero_image: space["hero_image"])
+    end
   end
 
   def initialize(customer_id:, id:, name:, description:, city:, price:, hero_image:)
