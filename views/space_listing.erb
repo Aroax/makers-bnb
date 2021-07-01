@@ -53,26 +53,33 @@
                 <p class="para text-muted"><%= @space.description %></p>
             </section>
             <hr>
+
             <section class="text-center">
+            <% if @user %>
                 <h4>Select check-in and check-out dates</h4>
                 <div class="grid">
-                    <form action="/spaces/space/<%= @space.id %>/book" method="post" class="form">
-                        <div class="col">
-                            <label>From</label>
-                            <input type="date" name="date_in" class="form-control" required>
-                        </div>
-                        <div class="col">
-                            <label>To</label>
-                            <input type="date" name="date_out" class="form-control" required>
-                        </div>
-                         <input type="submit" class="btn btn-primary form-control" value="Request to Book">
-                    </form>
-                    <% if flash[:unavailable_alert]%>
-                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                        <%= flash[:unavailable_alert] %>
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                    <% end %>                   
+
+                      <form action="/spaces/space/<%= @space.id %>/book" method="post" class="form">
+                          <div class="col">
+                              <label>From</label>
+                              <input type="date" name="date_in" class="form-control" required>
+                          </div>
+                          <div class="col">
+                              <label>To</label>
+                              <input type="date" name="date_out" class="form-control" required>
+                          </div>
+                           <input type="submit" class="btn btn-primary form-control" value="Request to Book">
+                      </form>
+                      <% if flash[:unavailable_alert]%>
+                      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                          <%= flash[:unavailable_alert] %>
+                          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                      </div>
+                      <% end %>
+            <% else %>
+              <p>To book this Space, please</p>
+              <a href="/users/login" class="btn btn-primary text-right" role="button">Login</a> or <a href="/users/register" class="btn btn-primary text-right" role="button">Register</a>
+            <% end %>
                     <hr>
                 </div>
             </section>
