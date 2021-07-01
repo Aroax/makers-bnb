@@ -4,9 +4,9 @@ class Booking
 
   attr_reader :id, :customer_id, :space_id, :request, :date_in, :date_out
 
-  def self.add(space_id: )
-    # Temporary fixed variables - replace with path dynamic arguments
-    customer_id = 1
+  def self.add(customer_id:, space_id: )
+    # Temporary fixed variables - replace with path dynamic arguments as appropriate
+
     request = "approved"
     date_in = Date.parse('2021-09-03')
     date_out = Date.parse('2021-09-10')
@@ -17,10 +17,27 @@ class Booking
   end
 
   def self.find_by_space_id(space_id:)
-    bookings = DatabaseConnection.query(sql: "SELECT * FROM booking WHERE id=$1;", params: [space_id])
+    bookings = DatabaseConnection.query(sql: "SELECT * FROM booking WHERE space_id=$1;", params: [space_id])
+    booking = bookings.map do |booking|
+      Booking.new(id: booking['id'], customer_id: booking['customer_id'], space_id: booking['space_id'], request: booking['request'], date_in: booking['date_in'], date_out: booking['date_out'])
+    end
+    booking.first
+  end
+
+  def self.find_by_customer_id(customer_id:)
+    bookings = DatabaseConnection.query(sql: "SELECT * FROM booking WHERE customer_id=$1;", params: [customer_id])
     bookings.map do |booking|
       Booking.new(id: booking['id'], customer_id: booking['customer_id'], space_id: booking['space_id'], request: booking['request'], date_in: booking['date_in'], date_out: booking['date_out'])
     end
+  end
+
+  def self.last(customer_id:)
+    result = DatabaseConnection.query(sql: "SELECT * FROM booking WHERE customer_id=$1 ORDER BY id DESC LIMIT 1;", params: [customer_id])
+
+    recent_booking = result.map do |booking|
+      Booking.new(id: booking['id'], customer_id: booking['customer_id'], space_id: booking['space_id'], request: booking['request'], date_in: booking['date_in'], date_out: booking['date_out'])
+    end
+    recent_booking.first
   end
 
   def initialize(id:, customer_id:, space_id:, request:, date_in:, date_out:)
