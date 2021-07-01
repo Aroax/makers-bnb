@@ -57,4 +57,15 @@ class Booking
     end
     result.empty?
   end
+
+  def self.approve(booking_id:)
+    DatabaseConnection.query(sql:"UPDATE booking SET request = $1 WHERE id = $2;", params: ["approved", booking_id])
+
+  end
+
+  def self.decline(booking_id:)
+    DatabaseConnection.query(sql:"UPDATE booking SET request = $1 WHERE id = $2;", params: ["declined", booking_id])
+  end
+
+  
 end
