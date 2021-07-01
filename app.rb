@@ -77,13 +77,26 @@ class MakersBnb < Sinatra::Base
     redirect "/spaces"
   end
 
+
   get "/users/dashboard" do
     @user = get_session
-    # @booking = session[:current_booking]
     @booking = Booking.last(customer_id: @user.id)
     @space = Space.find_by_id(space_id: @booking.space_id)
+
+    requests_made = Booking.sort_bookings_by_role(customer_id: @user.id, role: "guest")
+    requests_received = Booking.sort_bookings_by_role(customer_id: @user.id, role: "host")
+
+    @made_pending, @made_approved, @made_decline = Booking.sort_bookings_by_request(booking_array: requests_made)
+    @received_pending, @received_approved, @received_decline = Booking.sort_bookings_by_request(booking_array: requests_received)
+    p "*" * 40
+    p "booking made: #{@made_pending}"
+
+    p "booking received: #{@received_pending}"
+    p "*" * 40
+
     erb :"users/user_dashboard"
   end
+
 
   post "/spaces/space/:id/book" do
     @user = get_session
