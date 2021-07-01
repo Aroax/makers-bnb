@@ -18,6 +18,7 @@ describe Booking do
 
       expect(request.space_id).to eq booking.space_id
     end
+
   end
 
   describe ".find_by_space_id" do
@@ -80,5 +81,32 @@ describe Booking do
 
       expect(result).to eq false
     end
+  end
+
+  context "when a booking request is received by a Host" do
+    it "can be approved" do
+      request = Booking.add(space_id: space_id, customer_id: customer_id, date_in: date_in, date_out: date_out)
+      booking = Booking.find_id(space_id: space_id, customer_id: customer_id)
+
+      expect(booking.request).to eq "pending"
+
+      Booking.approve(booking_id: booking.id)
+
+      booking = Booking.find_id(space_id: space_id, customer_id: customer_id)
+      expect(booking.request).to eq "approved"
+    end
+
+    it "can be declined" do
+      request = Booking.add(space_id: space_id, customer_id: customer_id, date_in: date_in, date_out: date_out)
+      booking = Booking.find_id(space_id: space_id, customer_id: customer_id)
+
+      expect(booking.request).to eq "pending"
+
+      Booking.decline(booking_id: booking.id)
+
+      booking = Booking.find_id(space_id: space_id, customer_id: customer_id)
+      expect(booking.request).to eq "declined"
+    end
+
   end
 end

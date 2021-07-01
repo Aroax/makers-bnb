@@ -3,8 +3,8 @@ require_relative "database_connection"
 class Space
   attr_reader :id, :name, :description, :city, :price, :hero_image
 
-  def self.add(name:, description:, city:, price:, hero_image:)
-    result = DatabaseConnection.query(sql: "INSERT INTO space (name, description, city, price, hero_image) VALUES ($1, $2, $3, $4, $5) RETURNING id, name, description, city, price, hero_image;", params: [name, description, city, price, hero_image])
+  def self.add(customer_id:, name:, description:, city:, price:, hero_image:)
+    result = DatabaseConnection.query(sql: "INSERT INTO space (name, description, city, price, hero_image, customer_id) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id, name, description, city, price, hero_image;", params: [name, description, city, price, hero_image, customer_id])
     space = Space.new(
       id: result[0]["id"],
       name: result[0]["name"],
