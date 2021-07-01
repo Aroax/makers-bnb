@@ -10,3 +10,11 @@ def add_space
 
       click_button('submit')
 end
+
+def register_user(email: ,password: )
+  visit "/spaces"
+  click_link "Register"
+  fill_in "email", with: email
+  fill_in "password", with: password
+  click_button "Register"
+end

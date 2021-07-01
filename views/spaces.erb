@@ -28,16 +28,30 @@
           <a class="nav-link" href="#">Dashboard</a>
         </li>
       </ul>
+      <% if @user %>
       <span class="navbar-text">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item me-2">
-        <a href="#" class="navbar-link mr-5">Sign in</a>
+        Welcome, <%= @user.email %>
+        </li>
+        <li class="nav-item">
+       <a href="/users/session/destroy" class="navbar-link mr-5">Logout</a>
+        </li>
+        </ul>
+      </span>
+      <% else %>
+      <span class="navbar-text">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item me-2">
+        <a href="/users/login" class="navbar-link mr-5">Login</a>
         </li>
         <li class="nav-item">
        <a href="users/register" class="navbar-link mr-5">Register</a>
         </li>
         </ul>
       </span>
+      <% end %>
+
     </div>
   </div>
 </nav>
