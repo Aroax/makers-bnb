@@ -24,7 +24,7 @@ class MakersBnb < Sinatra::Base
   end
 
   get "/spaces" do
-    @active = "active"
+    @spaces_active = "active"
     @spaces = Space.show_all
     @user = get_session
     erb :spaces
@@ -34,6 +34,12 @@ class MakersBnb < Sinatra::Base
     @user = get_session
     @space = Space.find_by_id(space_id: params[:id])
     erb :space_listing
+  end
+
+  get "/users/spaces" do
+    @user = get_session
+    @user_spaces = Space.find_by_customer_id(customer_id: @user.id)
+    erb :"users/my_spaces"
   end
 
   get "/spaces/new" do
