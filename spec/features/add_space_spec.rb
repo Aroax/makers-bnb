@@ -1,5 +1,6 @@
 feature "adding a space" do
   scenario "hosts can add a space" do
+    register_and_login_user(email: "email@example.com", password: "password")
     visit "/spaces"
     click_button("List a Space")
 

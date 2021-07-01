@@ -26,3 +26,18 @@ def register_user(email:, password:)
   fill_in "password", with: password
   click_button "Register"
 end
+
+def register_and_login_user(email:, password:)
+  register_user(email: email, password: password)
+  logout_user
+  visit "/spaces"
+  click_link "Login"
+  fill_in "email", with: email
+  fill_in "password", with: password
+  click_button "Login"
+end
+
+def logout_user
+  visit "/spaces"
+  click_link "Logout"
+end
