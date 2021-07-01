@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/mikeconnolly/Desktop/Projects/MakersBnB/makers-bnb/app.rb": {
+      "/Users/juelb/Desktop/Makers/makers-bnb/app.rb": {
         "lines": [
           1,
           1,
@@ -119,7 +119,7 @@
           null
         ]
       },
-      "/Users/mikeconnolly/Desktop/Projects/MakersBnB/makers-bnb/lib/space.rb": {
+      "/Users/juelb/Desktop/Makers/makers-bnb/lib/space.rb": {
         "lines": [
           1,
           null,
@@ -170,7 +170,7 @@
           null
         ]
       },
-      "/Users/mikeconnolly/Desktop/Projects/MakersBnB/makers-bnb/lib/booking.rb": {
+      "/Users/juelb/Desktop/Makers/makers-bnb/lib/booking.rb": {
         "lines": [
           1,
           null,
@@ -228,7 +228,7 @@
           null
         ]
       },
-      "/Users/mikeconnolly/Desktop/Projects/MakersBnB/makers-bnb/lib/user.rb": {
+      "/Users/juelb/Desktop/Makers/makers-bnb/lib/user.rb": {
         "lines": [
           1,
           1,
@@ -273,7 +273,7 @@
           null
         ]
       },
-      "/Users/mikeconnolly/Desktop/Projects/MakersBnB/makers-bnb/spec/features/add_space_spec.rb": {
+      "/Users/juelb/Desktop/Makers/makers-bnb/spec/features/add_space_spec.rb": {
         "lines": [
           1,
           1,
@@ -296,7 +296,7 @@
           null
         ]
       },
-      "/Users/mikeconnolly/Desktop/Projects/MakersBnB/makers-bnb/spec/features/request_booking_spec.rb": {
+      "/Users/juelb/Desktop/Makers/makers-bnb/spec/features/request_booking_spec.rb": {
         "lines": [
           1,
           1,
@@ -304,7 +304,7 @@
           null
         ]
       },
-      "/Users/mikeconnolly/Desktop/Projects/MakersBnB/makers-bnb/spec/features/test_spec.rb": {
+      "/Users/juelb/Desktop/Makers/makers-bnb/spec/features/test_spec.rb": {
         "lines": [
           1,
           1,
@@ -314,7 +314,7 @@
           null
         ]
       },
-      "/Users/mikeconnolly/Desktop/Projects/MakersBnB/makers-bnb/spec/features/unavailablity_alert_spec.rb": {
+      "/Users/juelb/Desktop/Makers/makers-bnb/spec/features/unavailablity_alert_spec.rb": {
         "lines": [
           1,
           1,
@@ -329,7 +329,7 @@
           null
         ]
       },
-      "/Users/mikeconnolly/Desktop/Projects/MakersBnB/makers-bnb/spec/features/user_management_spec.rb": {
+      "/Users/juelb/Desktop/Makers/makers-bnb/spec/features/user_management_spec.rb": {
         "lines": [
           1,
           null,
@@ -377,7 +377,7 @@
           null
         ]
       },
-      "/Users/mikeconnolly/Desktop/Projects/MakersBnB/makers-bnb/spec/features/view_spaces_spec.rb": {
+      "/Users/juelb/Desktop/Makers/makers-bnb/spec/features/view_spaces_spec.rb": {
         "lines": [
           1,
           null,
@@ -391,7 +391,7 @@
           null
         ]
       },
-      "/Users/mikeconnolly/Desktop/Projects/MakersBnB/makers-bnb/spec/units/booking_spec.rb": {
+      "/Users/juelb/Desktop/Makers/makers-bnb/spec/units/booking_spec.rb": {
         "lines": [
           1,
           1,
@@ -479,7 +479,7 @@
           null
         ]
       },
-      "/Users/mikeconnolly/Desktop/Projects/MakersBnB/makers-bnb/spec/units/database_connection_spec.rb": {
+      "/Users/juelb/Desktop/Makers/makers-bnb/spec/units/database_connection_spec.rb": {
         "lines": [
           1,
           1,
@@ -508,7 +508,7 @@
           null
         ]
       },
-      "/Users/mikeconnolly/Desktop/Projects/MakersBnB/makers-bnb/spec/units/space_spec.rb": {
+      "/Users/juelb/Desktop/Makers/makers-bnb/spec/units/space_spec.rb": {
         "lines": [
           1,
           1,
@@ -566,7 +566,7 @@
           null
         ]
       },
-      "/Users/mikeconnolly/Desktop/Projects/MakersBnB/makers-bnb/spec/units/user_spec.rb": {
+      "/Users/juelb/Desktop/Makers/makers-bnb/spec/units/user_spec.rb": {
         "lines": [
           1,
           null,
@@ -606,6 +606,6 @@
         ]
       }
     },
-    "timestamp": 1625143701
+    "timestamp": 1625173559
   }
 }
