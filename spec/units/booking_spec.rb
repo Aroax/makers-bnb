@@ -33,14 +33,18 @@ describe Booking do
     end
   end
 
-  describe ".unavailable", :focus do
-    it "returns true if property is unavailable on given date" do
-      result = Booking.unavailable(space_id: 2, date_in: "2021-09-03")
+  describe ".available?", :focus do
+    before(:each) do
+      booking = DatabaseConnection.query(sql: "INSERT INTO booking (customer_id, space_id, request, date_in, date_out) VALUES ($1, $2, $3, $4, $5);", params: [customer_id, space_id, request, date_in, date_out])
+    end
+
+    it "returns true if property is available on given date" do
+      result = Booking.available?(space_id: space_id, date_in: "2023-01-01")
 
       expect(result).to eq true
     end
-    it "returns false if property is available on given date" do
-      result = Booking.unavailable(space_id: 2, date_in: "2021-09-01")
+    it "returns false if property is unavailable on given date" do
+      result = Booking.available?(space_id: space_id, date_in: date_in)
 
       expect(result).to eq false
     end

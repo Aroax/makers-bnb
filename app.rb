@@ -35,19 +35,6 @@ class MakersBnb < Sinatra::Base
     erb :space_listing
   end
 
-  post "/spaces/space/:id/book" do
-    # p params
-
-    session[:current_booking] = Booking.add(space_id: params[:id], date_in: params[:date_in], date_out: params[:date_out])
-    @unavailable = Booking.unavailable(space_id: params[:id], date_in: params[:date_in])
-    if @unavailable == false
-      redirect "/users/dashboard"
-    else
-      # redirect "/spaces"
-      flash[:notice] = "Sorry, this property is unavailable on this date :("
-    end
-  end
-
   get "/spaces/new" do
     erb :"spaces/new_space"
   end
@@ -61,6 +48,23 @@ class MakersBnb < Sinatra::Base
     @booking = session[:current_booking]
     @space = Space.find_by_id(space_id: @booking.space_id)
     erb :"users/user_dashboard"
+  end
+
+  post "/spaces/space/:id/book" do
+    space = Space.find_by_id(space_id: params[:id])
+    # available = Booking.available?(space_id: params[:id], date_in: params[:date_in])
+
+    if Booking.available?(space_id: params[:id], date_in: params[:date_in])
+      session[:current_booking] = Booking.add(space_id: params[:id], date_in: params[:date_in], date_out: params[:date_out])
+      redirect "/users/dashboard"
+    else
+      flash[:unavailable_alert] = "Sorry, this property is unavailable on #{params[:date_in]} :("
+      redirect "/spaces/space/#{space.id}"
+    end
+  end
+
+  def available?(space_id, date_in)
+    Booking.available?(space_id: space_id, date_in: date_in)
   end
 
   run! if app_file == $0

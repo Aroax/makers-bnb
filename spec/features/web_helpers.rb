@@ -13,7 +13,9 @@ end
 def request_space
   add_space
 
-  all("#space").last.click_link "View"
+  # all("#space").first.click_link "View"
+  first("#space").click_link "View"
   fill_in(:date_in, with: "2021-09-03")
+  fill_in(:date_out, with: "2021-09-04")
   click_button "Request to Book"
 end

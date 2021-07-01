@@ -30,18 +30,11 @@ class Booking
     @date_out = date_out
   end
 
-  def self.unavailable(space_id:, date_in:)
-    bookings_for_space_id = DatabaseConnection.query(sql: "SELECT * FROM booking WHERE space_id=$1;", params: [space_id])
-    result = []
-    bookings_for_space_id.map do |booking|
-      bk = Booking.new(id: booking["id"], customer_id: booking["customer_id"], space_id: booking["space_id"], request: booking["request"], date_in: booking["date_in"], date_out: booking["date_out"])
-      if (bk.date_in) == (date_in)
-        result << true
-      else
-        result << false
-      end
+  def self.available?(space_id:, date_in:)
+    bookings_for_space_id = DatabaseConnection.query(sql: "SELECT * FROM booking WHERE space_id=$1 AND date_in=$2;", params: [space_id, date_in])
+    result = bookings_for_space_id.map do |booking|
+      Booking.new(id: booking["id"], customer_id: booking["customer_id"], space_id: booking["space_id"], request: booking["request"], date_in: booking["date_in"], date_out: booking["date_out"])
     end
-    return false unless result.include?(true)
-    # result.include?(true)
+    result.empty?
   end
 end
