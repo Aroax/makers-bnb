@@ -36,7 +36,6 @@ class Booking
     @host = []
     @guest = []
 
-
     bookings = Booking.find_by_customer_id(customer_id: customer_id)
 
     owned_spaces = Space.find_by_customer_id(customer_id: customer_id)
@@ -44,38 +43,36 @@ class Booking
 
     owned_spaces.each { |space| owned_space_ids << space.id }
 
-
     bookings.each do |booking|
 
       if owned_space_ids.include?(booking.space_id)
-        @host << booking
+        @host << booking.first
       else
-        @guest << booking
+        @guest << booking.first
       end
     end
 
     return @host if role == "host"
     return @guest if role == "guest"
-    
   end
-  
+
   def self.sort_bookings_by_request(booking_array:)
     pending = []
     approved = []
     declined = []
-    
+
     booking_array.each { |booking|
 
     if booking.request == "pending"
       pending << booking
     elsif booking.request == "approved"
       approved << booking
-    else 
+    else
       declined << booking
     end
 
     }
-    
+
    return pending, approved, declined
 
   end
@@ -108,12 +105,11 @@ class Booking
 
   def self.approve(booking_id:)
     DatabaseConnection.query(sql:"UPDATE booking SET request = $1 WHERE id = $2;", params: ["approved", booking_id])
-
   end
 
   def self.decline(booking_id:)
     DatabaseConnection.query(sql:"UPDATE booking SET request = $1 WHERE id = $2;", params: ["declined", booking_id])
   end
 
-  
+
 end
