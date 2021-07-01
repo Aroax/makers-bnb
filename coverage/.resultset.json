@@ -149,10 +149,7 @@
           null,
           null,
           null,
-<<<<<<< HEAD
-=======
           null,
->>>>>>> b522bfa7b73ccf54a92a7b446120f33b300dac15
           7,
           null,
           null,
@@ -170,10 +167,7 @@
           18,
           18,
           18,
-<<<<<<< HEAD
-=======
           18,
->>>>>>> b522bfa7b73ccf54a92a7b446120f33b300dac15
           null,
           null,
           null
@@ -616,10 +610,6 @@
         ]
       }
     },
-<<<<<<< HEAD
-    "timestamp": 1625143701
-=======
     "timestamp": 1625147330
->>>>>>> b522bfa7b73ccf54a92a7b446120f33b300dac15
   }
 }
