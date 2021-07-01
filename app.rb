@@ -39,7 +39,9 @@ class MakersBnb < Sinatra::Base
   get "/users/spaces" do
     @my_spaces_active = "active"
     @user = get_session
-    @user_spaces = Space.find_by_customer_id(customer_id: @user.id)
+    if @user
+      @user_spaces = Space.find_by_customer_id(customer_id: @user.id)
+    end
     erb :"users/my_spaces"
   end
 
