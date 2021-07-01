@@ -5,6 +5,6 @@ feature 'View spaces' do
     # add_row_to_test_space_table
     add_space
     visit '/spaces'
-    expect(page).to have_content "London"
+    expect(page).to have_content "Dream House"
   end
 end
