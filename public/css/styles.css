@@ -120,24 +120,6 @@ body {
   line-height: 1.5;
   letter-spacing: var(--letter-spacing);
 }
-.col-grid {
-  display: grid;
-  place-items: center;
-}
-
-.center-div {
-  margin: 0 auto;
-  width: 80%;
-}
-
-/* end of Common classes */
-
-body {
-  padding-top: 50px;
-  font-family: var(--font-fam);
-  line-height: 1.5;
-  letter-spacing: var(--letter-spacing);
-}
 
 .col-grid {
   display: grid;
@@ -173,4 +155,9 @@ body {
 
 .space-name {
   margin-top: 1em;
+}
+
+.form-check-input:checked {
+  border-color: var(--primary-color) !important;
+  background-color: var(--primary-color) !important;
 }
