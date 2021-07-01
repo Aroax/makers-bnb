@@ -38,6 +38,33 @@
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 
+
+
+<section class="">
+
+    <div class="container mb-5">
+      <div class="row gx-5">
+        <% @requests.each do |request| %>
+          <div class="col-sm-12 col-md-6">
+              <div class="card mb-5 space" id="spaceCard">
+                <img class="card-img-top img-fluid" src="<%= request.hero_image %>"  alt="placeholder">
+                    <div class="card-body">
+                      <h3 class="card-title"> <%= request.space_name %></h3>
+                      <p class="card-text text-muted space-description"><%= request.request_status %>
+                      </p>
+                      <a href="/spaces/space/<%= request.space_id %>" class="btn btn-primary text-right" role="button">View</a>
+                      <br>
+                    </div>
+                </div>
+              </div>
+        <% end %>
+      </div>
+    </div>
+</section>
+
+
+
+
 <body>
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
