@@ -94,7 +94,7 @@ class MakersBnb < Sinatra::Base
       redirect "/users/dashboard"
     else
       flash[:unavailable_alert] = "Sorry, this property is unavailable on #{params[:date_in]} :("
-      redirect "/spaces/space/#{space.id}"
+      redirect "/spaces/space/#{space.id}#unavailable"
     end
   end
 
