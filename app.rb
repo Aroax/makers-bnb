@@ -42,7 +42,7 @@ class MakersBnb < Sinatra::Base
 
   post "/spaces/add" do
     @user = get_session
-    Space.add(name: params[:name], description: params[:description], city: params[:city], price: params[:price], hero_image: params[:hero_image])
+    Space.add(customer_id: @user.id, name: params[:name], description: params[:description], city: params[:city], price: params[:price], hero_image: params[:hero_image])
     redirect "/spaces"
   end
 

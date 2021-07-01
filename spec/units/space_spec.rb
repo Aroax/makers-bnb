@@ -3,6 +3,7 @@ require_relative '../setup_test_database'
 
 describe Space do
 
+  let(:customer_id) { double(:customer_id)}
   let(:name) { double(:name) }
   let(:description) { double(:description) }
   let(:price) { 350 }
@@ -28,7 +29,7 @@ describe Space do
 
   describe '.add' do
     it 'adds a new space to the database' do
-      space = Space.add(name: name, description: description, city: city, price: price, hero_image: hero_image)
+      space = Space.add(customer_id: customer_id, name: name, description: description, city: city, price: price, hero_image: hero_image)
 
       expect(space.name).to eq "#{name}"
       expect(space.description).to eq "#{description}"
@@ -39,7 +40,7 @@ describe Space do
 
   describe ".find_by_id" do
     it "returns the space object" do
-      space = Space.add(name: name, description: description, city: city, price: price, hero_image: hero_image)
+      space = Space.add(customer_id: customer_id, name: name, description: description, city: city, price: price, hero_image: hero_image)
 
       result = Space.find_by_id(space_id: space.id)
 
