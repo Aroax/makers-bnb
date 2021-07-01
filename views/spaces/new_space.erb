@@ -51,6 +51,7 @@
         </section>
         <section class="">
             <div class="grid">
+              <% if @user %>
                 <form action="/spaces/add" method="POST" id="form-content" class="">
                     <div class="text-center form-group">
                         <label>Name</label>
@@ -73,6 +74,10 @@
                     </div>
                         <input class="btn btn-primary" type="submit" value="submit">
                 </form>
+                <% else %>
+                  <p>To add a Space, please</p>
+                  <a href="/users/login" class="btn btn-primary text-right" role="button">Login</a> or <a href="/users/register" class="btn btn-primary text-right" role="button">Register</a>
+                <% end %>
             </div>
         </section>
     </main>
