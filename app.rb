@@ -94,7 +94,7 @@ class MakersBnb < Sinatra::Base
     #
     # p "booking received: #{@received_pending}"
     # p "*" * 40
-    @requests = Request.dashboard
+    @requests = Request.dashboard(customer_id: @user.id)
     p @requests
 
     erb :"users/user_dashboard"
