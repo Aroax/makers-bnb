@@ -1,0 +1,1 @@
+ALTER TABLE space ADD COLUMN hero_image VARCHAR(500);
