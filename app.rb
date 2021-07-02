@@ -71,7 +71,6 @@ class MakersBnb < Sinatra::Base
   end
 
   get "/users/register" do
-    redirect('/users/login') if !logged_in?
     erb :"users/user_registration"
   end
 
@@ -93,7 +92,7 @@ class MakersBnb < Sinatra::Base
       redirect("/spaces")
     else
       flash[:notice] = "field cannot be empty"
-      # redirect ("/users/register")
+      redirect ("/users/register")
     end
   end
 
