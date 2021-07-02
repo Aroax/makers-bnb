@@ -82,7 +82,7 @@ class MakersBnb < Sinatra::Base
   get "/users/dashboard" do
     @user = get_session
     @booking = Booking.last(customer_id: @user.id)
-    @space = Space.find_by_id(space_id: @booking.space_id)
+    # @space = Space.find_by_id(space_id: @booking.space_id)
 
     # requests_made = Booking.sort_bookings_by_role(customer_id: @user.id, role: "guest")
     # requests_received = Booking.sort_bookings_by_role(customer_id: @user.id, role: "host")
@@ -95,7 +95,8 @@ class MakersBnb < Sinatra::Base
     # p "booking received: #{@received_pending}"
     # p "*" * 40
     @requests = Request.dashboard(customer_id: @user.id)
-    p @requests
+    @requests_received, @requests_made = Request.categorize(dashboard: @requests)
+    # p @requests
 
     erb :"users/user_dashboard"
   end

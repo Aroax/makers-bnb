@@ -55,8 +55,8 @@ class Booking
   #   return @host if role == "host"
   #   return @guest if role == "guest"
   # end
-
-
+  #
+  #
   # def self.sort_bookings_by_request(booking_array:)
   #   pending = []
   #   approved = []

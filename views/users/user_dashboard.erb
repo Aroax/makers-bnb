@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
+  <!-- <head>
     <meta charset="utf-8">
     <title>User Dashboard</title>
   </head>
@@ -12,7 +12,7 @@
     <br>
     <h4>Your Submitted Requests</h4>
     <h5>Approved:</h5>
-    <p>Your request to book <%= @space.name %> is approved!</p>
+    <p>Your request to book is approved!</p>
     <br>
     <br>
     <h5>Pending:</h5>
@@ -21,7 +21,7 @@
     <h5>Declined:</h5>
     <br>
     <br>
-  </body>
+  </body> -->
 
 
 
@@ -40,11 +40,11 @@
 
 
 
-<section class="">
+<!-- <section class="">
 
     <div class="container mb-5">
       <div class="row gx-5">
-        <% @requests.each do |request| %>
+        <% @requests_made.each do |request| %>
           <div class="col-sm-12 col-md-6">
               <div class="card mb-5 space" id="spaceCard">
                 <img class="card-img-top img-fluid" src="<%= request.hero_image %>"  alt="placeholder">
@@ -60,12 +60,12 @@
         <% end %>
       </div>
     </div>
-</section>
+</section> -->
 
 
 
 
-<body>
+<!-- <body>
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="/spaces">MakersBnB</a>
@@ -108,7 +108,7 @@
               <% end %>
             </div>
         </div>
-    </nav>
+    </nav> -->
     <main class="container-fluid">
         <section class="text-center pt-5 pb-5 mb-5">
             <h1>My Dashboard</h1>
@@ -116,31 +116,29 @@
         </section>
         <div class="row align-items-center me-2 ms-2">
             <div class="col col-sm-12 col-md-6 mt-4">
-                <h3 class="mb-4">Customer ID - Requests made:</h3>
+                <h3 class="mb-4">Requests made:</h3>
 
-                <h4 class="mb-4">Confirmed</h4>
+
                 <div class="list-group grid">
-                    <a href="#" class="list-group-item list-group-item-action" aria-current="true">
-                        <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1">Beautiful Lakeview Space</h5>
-                            <small class="text-muted">Pending</small>
-                        </div>
-                        <p class="mb-1">London</p>
-                        <small class="text-muted">2021-10-31</small>
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1">Lavendar Hill</h5>
-                            <small class="text-muted">Approved</small>
-                        </div>
-                        <p class="mb-1">Manchester</p>
-                        <small class="text-muted">2021-09-03</small>
-                    </a>
+                  <% if @requests_made %>
+                    <% @requests_made.each do |request| %>
+                      <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+                          <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                          <div class="d-flex w-100 justify-content-between">
+                              <h5 class="mb-1"><%= request.space_name %></h5>
+                              <small class="text-muted"><%= request.request_status %></small>
+                          </div>
+                          <p class="mb-1"><%= request.space_city %></p>
+                          <small class="text-muted"><%= request.date_in %> to <%= request.date_out %></small>
+                      </a>
+                      <% end %>
+                    <% else %>
+                    You have no booking requests
+                    <% end %>
+
                 </div>
 
-                <h4 class="mb-4">Pending</h4>
+                <!-- <h4 class="mb-4">Pending</h4>
                 <div class="list-group grid">
                     <a href="#" class="list-group-item list-group-item-action" aria-current="true">
                         <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
@@ -182,25 +180,31 @@
                         <p class="mb-1">Manchester</p>
                         <small class="text-muted">2021-09-03</small>
                     </a>
-                </div>
+                </div> -->
 
 
             </div>
             <div class="col col-sm-12 col-md-6 mt-4">
                 <h3 class="mb-4">Requests received:</h3>
 
-            <h4 class="mb-4">Confirmed</h4>
+
                 <div class="list-group grid">
-                    <a href="#" class="list-group-item list-group-item-action" aria-current="true">
-                        <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1">Beautiful Lakeview Space</h5>
-                            <small class="text-muted">Pending</small>
-                        </div>
-                        <p class="mb-1">London</p>
-                        <small class="text-muted">2021-10-31</small>
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action">
+                  <% if @requests_sent %>
+                    <% @requests_sent.each do |request| %>
+                      <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+                          <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                          <div class="d-flex w-100 justify-content-between">
+                              <h5 class="mb-1"><%= request.space_name %></h5>
+                              <small class="text-muted"><%= request.request_status %></small>
+                          </div>
+                          <p class="mb-1"><%= request.space_city %></p>
+                          <small class="text-muted"><%= request.date_in %> to <%= request.date_out %></small>
+                      </a>
+                      <% end %>
+                    <% else %>
+                      You have no spaces to host
+                    <% end %>
+                    <!-- <a href="#" class="list-group-item list-group-item-action">
                         <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
                         <div class="d-flex w-100 justify-content-between">
                             <h5 class="mb-1">Lavendar Hill</h5>
@@ -253,7 +257,7 @@
                         <p class="mb-1">Manchester</p>
                         <small class="text-muted">2021-09-03</small>
                     </a>
-                </div>
+                </div> -->
 
 
             </div>
