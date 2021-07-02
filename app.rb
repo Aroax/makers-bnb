@@ -99,14 +99,16 @@ class MakersBnb < Sinatra::Base
     #
     # @made_pending, @made_approved, @made_decline = Booking.sort_bookings_by_request(booking_array: requests_made)
     # @received_pending, @received_approved, @received_decline = Booking.sort_bookings_by_request(booking_array: requests_received)
-    # p "*" * 40
-    # p "booking made: #{@made_pending}"
-    #
-    # p "booking received: #{@received_pending}"
-    # p "*" * 40
+
     @requests = Request.dashboard(customer_id: @user.id)
-    @requests_received, @requests_made = Request.categorize(dashboard: @requests)
+    @requests_received, @requests_made = Request.categorize(dashboard: @requests, current_user: @user.id)
+    # p "-" * 40
     # p @requests
+    # p "*" * 40
+    # p "booking made: #{@requests_made}"
+    #
+    # p "booking received: #{@requests_received}"
+    # p "*" * 40
 
     erb :"users/user_dashboard"
   end

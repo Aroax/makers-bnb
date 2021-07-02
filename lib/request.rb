@@ -32,22 +32,28 @@ class Request
     return requests
   end
 
-  def self.categorize(dashboard:)
+  def self.categorize(dashboard:, current_user:)
     host_requests = []
     guest_requests = []
 
-    dashboard.each { |request|
-      if request.customer_id == request.space_owner_id
-        host_requests << request
-      else
+    dashboard.map { |request|
+      p "customer id : #{request.customer_id}"
+      p "space owner id :  #{request.space_owner_id}"
+
+      if "#{current_user}" != "#{request.space_owner_id}"
         guest_requests << request
+      else
+        host_requests << request
       end
       }
-      # p "hosts - #{host_requests}"
-      # p "guests - #{guest_requests}"
+      p "hosts - #{host_requests}"
+      p "guests - #{guest_requests}"
     return host_requests, guest_requests
   end
 
+
+    #
+    #
     # host_spaces = Space.find_by_customer_id(customer_id: dashboard[0]["customer_id"])
     # # if no results from this, none of the requests are for owned spaces, therefore all requests are guests
     # if host_spaces.any?
@@ -63,6 +69,9 @@ class Request
     #   guest_requests = dashboard
     # end
     # return host_requests, guest_requests
+
+
+
 
 
   def initialize(customer_id:,space_id:,space_name:,date_in:,date_out:,hero_image:,request_status:, space_owner_id:, space_city:)
