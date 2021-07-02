@@ -2,14 +2,20 @@ require "booking"
 require "database_connection"
 require "time"
 require "pg"
+require "setup_test_database"
 
 describe Booking do
-  # let(:connection) { PG.connect(dbname: 'makers_bnb_test') }
-  let(:customer_id) { 666 }
+  let(:connection) { PG.connect(dbname: 'makers_bnb_test') }
+  let(:customer_id) { 1 }
   let(:space_id) { 1 }
-  let(:request) { "approved" }
+  let(:request) { "pending" }
   let(:date_in) { Date.parse("2021-09-03") }
   let(:date_out) { Date.parse("2021-09-10") }
+
+  # before do
+  #   # connection.exec("INSERT INTO customer (id, email, password) VALUES ('1', 'booking_spec@example.com', 'qwerty');")
+  #   add_linked_records_to_all_tables
+  # end
 
   describe ".add" do
     it "adds a request to book" do
