@@ -57,7 +57,21 @@ class MakersBnb < Sinatra::Base
     redirect "/spaces"
   end
 
+  post "/spaces/space/:id/book" do
+    @user = get_session
+    space = Space.find_by_id(space_id: params[:id])
+
+    if Booking.available?(space_id: params[:id], date_in: params[:date_in])
+      session[:current_booking] = Booking.add(customer_id: @user.id, space_id: params[:id], date_in: params[:date_in], date_out: params[:date_out])
+      redirect "/users/dashboard"
+    else
+      flash[:unavailable_alert] = "Sorry, this property is unavailable on #{params[:date_in]} :("
+      redirect "/spaces/space/#{space.id}#unavailable"
+    end
+  end
+
   get "/users/register" do
+    redirect('/users/login') if !logged_in?
     erb :"users/user_registration"
   end
 
@@ -90,41 +104,48 @@ class MakersBnb < Sinatra::Base
 
 
   get "/users/dashboard" do
+    redirect('/users/login') if !logged_in?
     @user = get_session
-    @booking = Booking.last(customer_id: @user.id)
-    # @space = Space.find_by_id(space_id: @booking.space_id)
-
-    # requests_made = Booking.sort_bookings_by_role(customer_id: @user.id, role: "guest")
-    # requests_received = Booking.sort_bookings_by_role(customer_id: @user.id, role: "host")
-    #
-    # @made_pending, @made_approved, @made_decline = Booking.sort_bookings_by_request(booking_array: requests_made)
-    # @received_pending, @received_approved, @received_decline = Booking.sort_bookings_by_request(booking_array: requests_received)
+    # @booking = Booking.last(customer_id: @user.id)
+    # @received_decline = Booking.sort_bookings_by_request(booking_array: requests_received)
 
     @requests = Request.dashboard(customer_id: @user.id)
     @requests_received, @requests_made = Request.categorize(dashboard: @requests, current_user: @user.id)
-    # p "-" * 40
-    # p @requests
-    # p "*" * 40
-    # p "booking made: #{@requests_made}"
-    #
-    # p "booking received: #{@requests_received}"
-    # p "*" * 40
 
     erb :"users/user_dashboard"
   end
 
-
-  post "/spaces/space/:id/book" do
-    @user = get_session
-    space = Space.find_by_id(space_id: params[:id])
-
-    if Booking.available?(space_id: params[:id], date_in: params[:date_in])
-      session[:current_booking] = Booking.add(customer_id: @user.id, space_id: params[:id], date_in: params[:date_in], date_out: params[:date_out])
-      redirect "/users/dashboard"
-    else
-      flash[:unavailable_alert] = "Sorry, this property is unavailable on #{params[:date_in]} :("
-      redirect "/spaces/space/#{space.id}#unavailable"
+  post '/users/dashboard/:booking_id/:action' do
+    # booking_id = Booking.find_id(customer_id: , space_id: )
+    # action(params[:action])
+    p "params: #{params[:action]}"
+    p "params booking: #{params[:booking_id]}"
+    if params[:action] == "approve"
+      Booking.approve!(booking_id: params[:booking_id].to_i)
+    elsif params[:action] == "decline"
+      Booking.decline!(booking_id: params[:booking_id].to_i)
     end
+
+    redirect('/users/dashboard')
+  end
+
+  post '/users/dashboard/action/:approve' do
+    Booking.approve(booking_id: params[:name])
+    redirect('/users/dashboard')
+  end
+
+  post '/users/dashboard/action/decline' do
+
+    redirect('/users/dashboard')
+  end
+
+  def action(button_name)
+    # return unless action == "approve" || action == "decline"
+    p button_name
+    action_array = button_name.to_s.split("-")
+    p action_array
+    Booking.approve(action_array[1]) if "#{action_array[0]}" == "approve"
+    Booking.decline(action_array[1]) if "#{action_array[0]}" == "decline"
   end
 
   def available?(space_id, date_in)
