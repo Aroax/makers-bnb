@@ -5,14 +5,15 @@ Built a web application that allows users to list spaces they have available, an
 #### Main features
 
 - Users can sign-up and sign-in - [Registration](/screenshots/register-form.png) / [Login](/screenshots/login-form.png) 
-- Login credentials are validated - [Login](/screenshots/login-validation.png) 
+- Login credentials are validated - [Login validation](/screenshots/login-validation.png)
+- Password is encrypted 
 - Spaces exist, and are displayed on home page - [Home page](/screenshots/landing-page.png) 
 - Space has a name, a blurb, a price (all provided by Host)
 - Host can list a space - [New space form](/screenshots/new-space-form.png) 
 - Host can list multiple spaces - [User's spaces](/screenshots/my-spaces.png)
 - Space has availability (by Host)
 - User can request a space for date(s)
-- User can see availability; User cannot book an unavailable space - [Registration](/screenshots/space-unavailable-alert.png) 
+- User can see availability; User cannot book an unavailable space - [Unavailability alert on booking](/screenshots/space-unavailable-alert.png) 
 - Host can approve/decline space requests - [User dashboard](/screenshots/user-dashboard.png) 
 - Space is available until request is approved - [Booking table](/screenshots/booking-requests.png)
 
