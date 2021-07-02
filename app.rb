@@ -5,6 +5,7 @@ require_relative "./database_connection_setup"
 require_relative "lib/space"
 require_relative "lib/booking"
 require_relative "lib/user"
+require_relative "lib/request"
 require "uri"
 
 class MakersBnb < Sinatra::Base
@@ -42,7 +43,7 @@ class MakersBnb < Sinatra::Base
 
   post "/spaces/add" do
     @user = get_session
-    Space.add(name: params[:name], description: params[:description], city: params[:city], price: params[:price], hero_image: params[:hero_image])
+    Space.add(customer_id: @user.id, name: params[:name], description: params[:description], city: params[:city], price: params[:price], hero_image: params[:hero_image])
     redirect "/spaces"
   end
 
@@ -77,13 +78,29 @@ class MakersBnb < Sinatra::Base
     redirect "/spaces"
   end
 
+
   get "/users/dashboard" do
     @user = get_session
-    # @booking = session[:current_booking]
     @booking = Booking.last(customer_id: @user.id)
-    @space = Space.find_by_id(space_id: @booking.space_id)
+    # @space = Space.find_by_id(space_id: @booking.space_id)
+
+    # requests_made = Booking.sort_bookings_by_role(customer_id: @user.id, role: "guest")
+    # requests_received = Booking.sort_bookings_by_role(customer_id: @user.id, role: "host")
+    #
+    # @made_pending, @made_approved, @made_decline = Booking.sort_bookings_by_request(booking_array: requests_made)
+    # @received_pending, @received_approved, @received_decline = Booking.sort_bookings_by_request(booking_array: requests_received)
+    # p "*" * 40
+    # p "booking made: #{@made_pending}"
+    #
+    # p "booking received: #{@received_pending}"
+    # p "*" * 40
+    @requests = Request.dashboard(customer_id: @user.id)
+    @requests_received, @requests_made = Request.categorize(dashboard: @requests)
+    # p @requests
+
     erb :"users/user_dashboard"
   end
+
 
   post "/spaces/space/:id/book" do
     @user = get_session

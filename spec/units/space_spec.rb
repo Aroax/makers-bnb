@@ -28,7 +28,7 @@ describe Space do
 
   describe '.add' do
     it 'adds a new space to the database' do
-      space = Space.add(name: name, description: description, city: city, price: price, hero_image: hero_image)
+      space = Space.add(customer_id: 999, name: name, description: description, city: city, price: price, hero_image: hero_image)
 
       expect(space.name).to eq "#{name}"
       expect(space.description).to eq "#{description}"
@@ -39,7 +39,7 @@ describe Space do
 
   describe ".find_by_id" do
     it "returns the space object" do
-      space = Space.add(name: name, description: description, city: city, price: price, hero_image: hero_image)
+      space = Space.add(customer_id: 999, name: name, description: description, city: city, price: price, hero_image: hero_image)
 
       result = Space.find_by_id(space_id: space.id)
 

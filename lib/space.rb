@@ -3,8 +3,8 @@ require_relative "database_connection"
 class Space
   attr_reader :id, :name, :description, :city, :price, :hero_image
 
-  def self.add(name:, description:, city:, price:, hero_image:)
-    result = DatabaseConnection.query(sql: "INSERT INTO space (name, description, city, price, hero_image) VALUES ($1, $2, $3, $4, $5) RETURNING id, name, description, city, price, hero_image;", params: [name, description, city, price, hero_image])
+  def self.add(customer_id:, name:, description:, city:, price:, hero_image:)
+    result = DatabaseConnection.query(sql: "INSERT INTO space (name, description, city, price, hero_image, customer_id) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id, name, description, city, price, hero_image;", params: [name, description, city, price, hero_image, customer_id])
     space = Space.new(
       id: result[0]["id"],
       name: result[0]["name"],
@@ -26,6 +26,21 @@ class Space
       hero_image: result[0]["hero_image"],
     )
     return space
+  end
+
+  def self.find_by_customer_id(customer_id: )
+    result = DatabaseConnection.query(sql: "SELECT * FROM space WHERE customer_id = $1;", params: [customer_id])
+    owned_spaces = result.map { |space|
+      Space.new(
+      id: space["id"],
+      name: space["name"],
+      description: space["description"],
+      city: space["city"],
+      price: space["price"],
+      hero_image: space["hero_image"],
+    )
+  }
+    return owned_spaces
   end
 
   def self.show_all

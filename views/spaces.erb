@@ -71,9 +71,9 @@
               <div class="row gx-5">
                 <% @spaces.each do |space| %>
                   <div class="col-sm-12 col-md-6">
-                      <div class="card mb-5 space">
+                      <div class="card mb-5 space" id="spaceCard">
                         <img class="card-img-top img-fluid" src="<%= space.hero_image %>"  alt="placeholder">
-                            <div class="card-body" id="<%= space.name %>">
+                            <div class="card-body">
                               <h3 class="card-title"> <%= space.name %></h3>
                               <p class="card-text text-muted space-description"><%= space.description %>
                               </p>
