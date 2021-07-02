@@ -1,45 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MakersBnB</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/css/styles.css">
-</head>
-
-<body>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">MakersBnB</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="/spaces">Spaces</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="#">Dashboard</a>
-                </li>
-            </ul>
-            <span class="navbar-text">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item me-2">
-                Signed in as <a href="#" class="navbar-link">Mark Otto</a>
-                </li>
-                <li class="nav-item">
-                <a href="#" class="navbar-link mr-5">Sign Out</a>
-                </li>
-                </ul>
-            </span>
-            </div>
-        </div>
-    </nav>
-    <% if @space %>
+<% if @space %>
         <main class="container">
             <section class="text-center">
                 <img src="<%= @space.hero_image %>" width="80%">
@@ -54,7 +13,7 @@
             </section>
             <hr>
 
-            <section class="text-center">
+            <section class="text-center" id="unavailable">
             <% if @user %>
                 <h4>Select check-in and check-out dates</h4>
                 <div class="grid">
@@ -78,21 +37,11 @@
                       <% end %>
             <% else %>
               <p>To book this Space, please</p>
-              <a href="/users/login" class="btn btn-primary text-right" role="button">Login</a> or <a href="/users/register" class="btn btn-primary text-right" role="button">Register</a>
+              <a href="/users/login" class="btn btn-primary text-right" role="button">Login</a> or <a href="/users/register" class="btn btn-default text-right" role="button">Register</a>
             <% end %>
-                    <hr>
                 </div>
             </section>
-            <hr>
-        </main>
     <% else %>
         <p>Nothing to see here</p>
     <%end%>
-    <footer class="footer mt-auto">
-        <div class="text-center p-3" style="background-color: white">
-            © 2021 Copyright:<a class="text-dark" href="https://github.com/Aroax/makers-bnb">MakersBnB team</a>
-        </div>
-    </footer>
-</body>
-
-</html>
+</main>

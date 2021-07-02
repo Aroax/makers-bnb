@@ -1,0 +1,39 @@
+<main class="container">
+  <section class="text-center pt-5 pb-5 mb-5">
+    <h1 class="display-5">My Spaces</h1>
+    <p class="lead text-muted mb-5">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta, inventore</p>
+    <% if @user %>
+    <form action="/spaces/new" method="get">
+      <input type="submit" class="btn btn-default" value="List a Space">
+    </form>
+  </section>
+    <section class="">
+      <div class="container mb-5">
+        <div class="row gx-5">
+          <% @user_spaces.map do |space| %>
+            <div class="col-sm-12 col-md-6">
+              <div class="card mb-5 space">
+                <img class="card-img-top img-fluid" src="<%= space.hero_image %>" alt="placeholder">
+                <div class="card-body" id="<%= space.name %>">
+                  <h3 class="card-title">
+                    <%= space.name %></h3>
+                  <p class="card-text text-muted space-description"><%= space.description %>
+                  </p>
+                  <a href="/spaces/space/<%= space.id %>" class="btn btn-primary text-right" role="button">View</a>
+                  <br>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% else %>
+      <div class="grid">
+        <p>To add a Space, please</p>
+        <a href="/users/login" class="btn btn-primary text-right" role="button">Login</a>
+        or
+        <a href="/users/register" class="btn btn-default text-right" role="button">Register</a>
+      </div>
+    <% end %>
+  </section>
+</main>
