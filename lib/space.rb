@@ -30,6 +30,21 @@ class Space
     return space
   end
 
+  def self.find_by_customer_id(customer_id:)
+    result = DatabaseConnection.query(sql: "SELECT * FROM space WHERE customer_id = $1;", params: [customer_id])
+    owned_spaces = result.map { |space|
+      Space.new(
+        id: space["id"],
+        name: space["name"],
+        description: space["description"],
+        city: space["city"],
+        price: space["price"],
+        hero_image: space["hero_image"],
+      )
+    }
+    return owned_spaces
+  end
+
   def self.show_all
     spaces = DatabaseConnection.query(sql: "SELECT * FROM space;", params: [])
     spaces.map do |space|
