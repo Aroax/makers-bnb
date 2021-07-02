@@ -32,55 +32,6 @@ class Booking
     booking.first
   end
 
-  # def self.sort_bookings_by_role(customer_id:, role:)
-  #   @host = []
-  #   @guest = []
-  #
-  #   bookings = Booking.find_by_customer_id(customer_id: customer_id)
-  #
-  #   owned_spaces = Space.find_by_customer_id(customer_id: customer_id)
-  #   owned_space_ids = []
-  #
-  #   owned_spaces.each { |space| owned_space_ids << space.id }
-  #
-  #   bookings.each do |booking|
-  #
-  #     if owned_space_ids.include?(booking.space_id)
-  #       @host << booking.first
-  #     else
-  #       @guest << booking.first
-  #     end
-  #   end
-  #
-  #   return @host if role == "host"
-  #   return @guest if role == "guest"
-  # end
-  #
-  #
-  # def self.sort_bookings_by_request(booking_array:)
-  #   pending = []
-  #   approved = []
-  #   declined = []
-  #
-  #   booking_array.each { |booking|
-  #
-  #   if booking.request == "pending"
-  #     pending << booking
-  #   elsif booking.request == "approved"
-  #     approved << booking
-  #   else
-  #     declined << booking
-  #   end
-  #
-  #   }
-  #
-  #   pending.each do |booking|
-  #     booking.
-  #
-  #  return pending, approved, declined
-  #
-  # end
-
   def self.last(customer_id:)
     result = DatabaseConnection.query(sql: "SELECT * FROM booking WHERE customer_id=$1 ORDER BY id DESC LIMIT 1;", params: [customer_id])
 
@@ -100,19 +51,23 @@ class Booking
   end
 
   def self.available?(space_id:, date_in:)
-    bookings_for_space_id = DatabaseConnection.query(sql: "SELECT * FROM booking WHERE space_id=$1 AND date_in=$2;", params: [space_id, date_in])
+    bookings_for_space_id = DatabaseConnection.query(sql: "SELECT * FROM booking WHERE space_id=$1 AND date_in=$2 AND request='approved';", params: [space_id, date_in])
     result = bookings_for_space_id.map do |booking|
       Booking.new(id: booking["id"], customer_id: booking["customer_id"], space_id: booking["space_id"], request: booking["request"], date_in: booking["date_in"], date_out: booking["date_out"])
     end
     result.empty?
   end
 
-  def self.approve(booking_id:)
-    DatabaseConnection.query(sql:"UPDATE booking SET request = $1 WHERE id = $2;", params: ["approved", booking_id])
+  def self.approve!(booking_id:)
+    DatabaseConnection.query(sql:"UPDATE booking SET request = $1 WHERE id = $2;", params: ["approved", booking_id.to_i])
   end
 
-  def self.decline(booking_id:)
-    DatabaseConnection.query(sql:"UPDATE booking SET request = $1 WHERE id = $2;", params: ["declined", booking_id])
+  def self.decline!(booking_id:)
+    DatabaseConnection.query(sql:"UPDATE booking SET request = $1 WHERE id = $2;", params: ["declined", booking_id.to_i])
+  end
+
+  def self.pending?(space_id:, date_in:)
+
   end
 
 end

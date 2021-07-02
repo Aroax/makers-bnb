@@ -189,13 +189,24 @@
 
 
                 <div class="list-group grid">
-                  <% if @requests_sent %>
-                    <% @requests_sent.each do |request| %>
+                  <% if @requests_received %>
+                    <% @requests_received.each do |request| %>
                       <a href="#" class="list-group-item list-group-item-action" aria-current="true">
                           <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
                           <div class="d-flex w-100 justify-content-between">
                               <h5 class="mb-1"><%= request.space_name %></h5>
                               <small class="text-muted"><%= request.request_status %></small>
+                              <% if request.request_status == "pending" %>
+                                <form action="/users/dashboard/<%= request.booking_id %>/approve" method="post">
+                                  <input type="hidden" name="<%= request.booking_id %>">
+                                  <input type="submit" class="btn btn-outline-success" value="Approve">
+                                </form>
+                                <form action="/users/dashboard/<%= request.booking_id %>/decline" method="post">
+                                  <input type="hidden" name="<%= request.booking_id %>">
+                                  <input type="submit" class="btn btn-outline-danger" name="<%= request.booking_id %>" value="Decline">
+                                </form>
+                              <% else %>
+                              <% end %>
                           </div>
                           <p class="mb-1"><%= request.space_city %></p>
                           <small class="text-muted"><%= request.date_in %> to <%= request.date_out %></small>
@@ -264,11 +275,7 @@
         </div>
         <hr>
     </main>
-    <footer class="footer mt-auto">
-        <div class="text-center p-3" style="background-color: white">
-            © 2021 Copyright:<a class="text-dark" href="https://github.com/Aroax/makers-bnb">MakersBnB team</a>
-        </div>
-    </footer>
+
 </body>
 
 </html>
