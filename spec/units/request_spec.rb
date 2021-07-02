@@ -24,7 +24,7 @@ describe Request do
 
     customer_bookings = Request.dashboard(customer_id: 1)
 
-    host_requests, guest_requests = Request.categorize(dashboard: customer_bookings)
+    host_requests, guest_requests = Request.categorize(dashboard: customer_bookings, current_user: 2)
 
     expect(customer_bookings.length).to eq 3
     expect(host_requests.length).to eq 2

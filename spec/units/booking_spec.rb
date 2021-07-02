@@ -96,7 +96,7 @@ describe Booking do
 
       expect(booking.request).to eq "pending"
 
-      Booking.approve(booking_id: booking.id)
+      Booking.approve!(booking_id: booking.id)
 
       booking = Booking.find_id(space_id: space_id, customer_id: customer_id)
       expect(booking.request).to eq "approved"
@@ -108,7 +108,7 @@ describe Booking do
 
       expect(booking.request).to eq "pending"
 
-      Booking.decline(booking_id: booking.id)
+      Booking.decline!(booking_id: booking.id)
 
       booking = Booking.find_id(space_id: space_id, customer_id: customer_id)
       expect(booking.request).to eq "declined"
