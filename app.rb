@@ -25,6 +25,7 @@ class MakersBnb < Sinatra::Base
   end
 
   get "/spaces" do
+    @spaces_active = "active"
     @spaces = Space.show_all
     @user = get_session
     erb :spaces
@@ -34,6 +35,15 @@ class MakersBnb < Sinatra::Base
     @user = get_session
     @space = Space.find_by_id(space_id: params[:id])
     erb :space_listing
+  end
+
+  get "/users/spaces" do
+    @my_spaces_active = "active"
+    @user = get_session
+    if @user
+      @user_spaces = Space.find_by_customer_id(customer_id: @user.id)
+    end
+    erb :"users/my_spaces"
   end
 
   get "/spaces/new" do
@@ -111,7 +121,7 @@ class MakersBnb < Sinatra::Base
       redirect "/users/dashboard"
     else
       flash[:unavailable_alert] = "Sorry, this property is unavailable on #{params[:date_in]} :("
-      redirect "/spaces/space/#{space.id}"
+      redirect "/spaces/space/#{space.id}#unavailable"
     end
   end
 
