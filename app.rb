@@ -92,8 +92,8 @@ class MakersBnb < Sinatra::Base
       session[:user] = User.add(email: params[:email], password: params[:password])
       redirect("/spaces")
     else
-      flash[:notice] = "Field cannot be empty, please try again"
-      redirect("/users/register")
+      flash[:notice] = "field cannot be empty"
+      # redirect ("/users/register")
     end
   end
 
@@ -104,6 +104,7 @@ class MakersBnb < Sinatra::Base
 
 
   get "/users/dashboard" do
+    @db_active = 'active'
     redirect('/users/login') if !logged_in?
     @user = get_session
     # @booking = Booking.last(customer_id: @user.id)

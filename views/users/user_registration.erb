@@ -14,7 +14,29 @@
 </head>
 
 <body>
-    <section class="text-center">
+
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/spaces">MakersBnB</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <span class="navbar-text">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a href="/users/login" class="navbar-link mr-5">Login</a>
+                  </li>
+                </ul>
+              </span>
+          </div>
+        </div>
+  </nav>
+
+
+
+    <section class="text-center mt-5">
         <main class="form-signin grid">
             <% if flash[:notice] %>
               <div class="alert alert-danger" role="alert">
@@ -39,9 +61,6 @@
                 <button class="w-100 btn btn-lg btn-primary" type="submit">Register</button>
             </form>
         </main>
-        <hr>
-        <p class="mt-5 mb-3 ">&copy; 2021 Copyright:
-        <a class="text-dark" href="https://github.com/Aroax/makers-bnb">MakersBnB team</a></p>
     </section>
 </body>
 
